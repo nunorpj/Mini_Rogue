@@ -12,9 +12,7 @@ import mini_rogue.logic.states.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
+
 public class TextUI {
     private MiniRogue Game;//miniRogue, tem la o GameData e os estados
     private boolean Quit = false;
