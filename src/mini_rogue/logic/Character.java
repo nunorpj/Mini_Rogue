@@ -6,6 +6,7 @@
 
 package mini_rogue.logic;
 
+import java.io.Serializable;
 import mini_rogue.logic.Spells.*;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public class Character {
+public class Character implements Serializable{
     private int lvl;
     private int xp;
     private int hp;
