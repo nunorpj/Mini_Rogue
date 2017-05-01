@@ -6,6 +6,7 @@
 
 package mini_rogue.logic;
 
+import java.io.Serializable;
 import mini_rogue.logic.Cards.*;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import mini_rogue.logic.Cards.Monsters.MonsterCard;
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 
-public class GameData {
+public class GameData implements Serializable {
 
     private int area;
     private Character Hero;

@@ -1,9 +1,10 @@
 package mini_rogue.logic;
 
+import java.io.Serializable;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class Dice {
+public class Dice implements Serializable {
     private int num, num2, value;
 
     public Dice() {

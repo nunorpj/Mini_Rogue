@@ -6,16 +6,20 @@
 
 package mini_rogue.textUI;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import mini_rogue.logic.MiniRogue;
 import mini_rogue.logic.states.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 public class TextUI {
@@ -44,7 +48,7 @@ public class TextUI {
                 } else
                     sc.next();
 
-                if (option < 0 || option > 3)
+                if (option < 0 || option > 4)
                     throw new InputMismatchException("Not between 0 and 3.");
             } catch (InputMismatchException ex) {
                 System.out.println("Invalid Option! -> " + ex.getMessage());
@@ -52,7 +56,7 @@ public class TextUI {
                 continue;
             }
 
-        } while (option < 0 || option > 3);
+        } while (option < 0 || option > 4);
 
         switch (option) {
             case 0:
@@ -67,6 +71,24 @@ public class TextUI {
             case 3:
                 set_dificulty();
                 break;
+            case 4:
+                String fileName=null;
+                BufferedReader bin = new BufferedReader(new InputStreamReader(System.in));
+                System.out.print("File name: ");
+                try {
+                    fileName = bin.readLine();
+                    }catch(IOException e){}
+
+                    if(fileName==null ||fileName.length() < 1){
+                        System.out.println("Invalide SaveGame name");
+                        return;
+                    }
+                    try {
+                        Game = loadGame(fileName);
+                    }catch(IOException | ClassNotFoundException e){
+                        System.out.println("Error Loading SaveGame");
+                    }
+                        
         }
     }
 
@@ -148,11 +170,8 @@ public class TextUI {
                 }
             }
             if(option==1){
-                try {
-                    saveGame();
-                } catch (IOException ex) {
-                System.out.println("error saving game!");
-                }
+                 handleSaveGameToFileOption();
+
             }
         }
     }
@@ -535,12 +554,12 @@ public class TextUI {
         
     }
 
-    private void saveGame() throws IOException {
+    private void saveGame(String fileName) throws IOException {
         ObjectOutputStream oout = null;
         try {
 
             //Create an object output stream connected to a file named fileName.
-            oout = new ObjectOutputStream(new FileOutputStream("save"));
+            oout = new ObjectOutputStream(new FileOutputStream(fileName));
 
             //Write/serialize the game object to the open object output stream.
             oout.writeObject(Game);
@@ -555,6 +574,54 @@ public class TextUI {
                     oout.close();
                 }catch(IOException e){}
             
+        }
+    }
+
+    private MiniRogue loadGame(String fileName) throws IOException, ClassNotFoundException  {
+ 
+        MiniRogue loadedGame;
+        ObjectInputStream oin = null;
+        
+        try {
+
+            //Create an object input stream connected to a file named fileName.
+            oin = new ObjectInputStream(new FileInputStream(fileName));
+            
+            //Retrieve a serialized instance of ThreeInRowGame from the object input stream and return a reference to it.
+            loadedGame = (MiniRogue)oin.readObject();
+
+            try{
+                if(oin != null)
+                    oin.close();
+            } catch(IOException e){e.printStackTrace();}
+
+
+        }finally{
+            //If the object input stream was successfuly created, close it.
+            if(oin != null)
+                oin.close();
+        }
+        return loadedGame;
+    
+    }
+    private void handleSaveGameToFileOption() {
+        String fileName = null;
+        
+        System.out.print("SaveGame name: ");
+         try {
+            fileName = new BufferedReader(new InputStreamReader(System.in)).readLine();
+        }catch(IOException e){}
+
+        if(fileName==null)
+            return;
+
+        if(fileName.length() < 1)
+            return;
+
+        try {
+            saveGame(fileName);
+        } catch (IOException ex) {
+            System.out.println("error saving game");
         }
     }
 }

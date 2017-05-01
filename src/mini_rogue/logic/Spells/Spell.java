@@ -6,9 +6,11 @@
 
 package mini_rogue.logic.Spells;
 
+import java.io.Serializable;
+
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public class Spell {
+public class Spell implements Serializable{
 
 }

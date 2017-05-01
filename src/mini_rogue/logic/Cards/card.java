@@ -6,12 +6,13 @@
 
 package mini_rogue.logic.Cards;
 
+import java.io.Serializable;
 import mini_rogue.logic.GameData;
 
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public class card {
+public class card implements Serializable{
     private final String name;
     private GameData game;
 

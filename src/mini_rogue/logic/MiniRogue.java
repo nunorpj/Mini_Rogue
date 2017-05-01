@@ -6,13 +6,14 @@
 
 package mini_rogue.logic;
 
+import java.io.Serializable;
 import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.IStates;
 
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
-public class MiniRogue {
+public class MiniRogue implements Serializable {
     //chama metedos dos estados para implementar/alterar objetos do GameData
     private GameData GameData;
     private IStates state;
