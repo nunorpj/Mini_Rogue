@@ -6,11 +6,16 @@
 
 package mini_rogue.textUI;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import mini_rogue.logic.MiniRogue;
 import mini_rogue.logic.states.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class TextUI {
@@ -29,6 +34,7 @@ public class TextUI {
             System.out.println("\t1 - Start Game");//inicio, ja fizeste a area
             System.out.println("\t2 - Set Starting Area");//falta a dificuldade!
             System.out.println("\t3 - Set Dificulty Lvl");
+            System.out.println("\t4 - Load Game");
             System.out.println("\t0 - quit");
             System.out.println();
             System.out.print("-> ");
@@ -123,6 +129,32 @@ public class TextUI {
                 cardSelected = true;
             }
         } while (!Quit && !cardSelected);
+        if (Quit){
+            option=-1;
+            while(option!=0&&option!=1){
+                System.out.println("Do you wanna save this game?");
+                System.out.println("1-Yes");
+                System.out.println("0-No");
+                System.out.println();
+                System.out.print("-> ");
+                try {
+                    if (sc.hasNextInt())
+                        option = sc.nextInt();
+                    else
+                        sc.next();
+                } catch (InputMismatchException ex) {
+                    System.out.println("Invalid Option! -> " + ex.getMessage());
+                    continue;
+                }
+            }
+            if(option==1){
+                try {
+                    saveGame();
+                } catch (IOException ex) {
+                System.out.println("error saving game!");
+                }
+            }
+        }
     }
 
     private void uiAwaitTrading() {
@@ -501,6 +533,29 @@ public class TextUI {
         else
             this.Game=new MiniRogue();
         
+    }
+
+    private void saveGame() throws IOException {
+        ObjectOutputStream oout = null;
+        try {
+
+            //Create an object output stream connected to a file named fileName.
+            oout = new ObjectOutputStream(new FileOutputStream("save"));
+
+            //Write/serialize the game object to the open object output stream.
+            oout.writeObject(Game);
+        } catch(IOException e){
+            return;
+        }
+        finally{
+            
+            //If the object output stream was successfuly created, close it.
+            if(oout != null)
+                try {
+                    oout.close();
+                }catch(IOException e){}
+            
+        }
     }
 }
 
