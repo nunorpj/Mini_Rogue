@@ -19,6 +19,10 @@ public class RolledDices extends StateAdapter {
     public RolledDices(GameData g, Monster monster) {
         super(g);
         this.enemy = monster;
+        if(getGame().getLastState() instanceof WaitForFeats){
+            
+        }else
+            getGame().getCharacter().setAtack();
 
 
     }

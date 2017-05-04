@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import mini_rogue.logic.Cards.Monsters.BossMonsterCard;
 import mini_rogue.logic.Cards.Monsters.MonsterCard;
+import mini_rogue.logic.states.IStates;
 
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -30,9 +31,9 @@ public class GameData implements Serializable {
     private boolean featsUsed;
     private boolean win=false;
     private String mensage;
+    private IStates lastStat; 
 
-
-    GameData() {
+    public GameData() {
         this.area = 1;
         this.Collunlvl = 1;
         this.Dificulty = 2;//normal
@@ -255,5 +256,11 @@ public class GameData implements Serializable {
     public boolean isaWinner(){
         return this.win;
     }
+    public void setLastState(IStates s){
+        this.lastStat=s;
+    }
     
+    public IStates getLastState(){
+        return this.lastStat;
+    }
 }
