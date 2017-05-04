@@ -92,7 +92,7 @@ public class StateAdapter implements IStates {
             getGame().getCharacter().AddOrRemoveHp(-2);
 
         if (getGame().getCharacter().getHp() <= 0)
-            return new AwaitBeginning(getGame());
+            return new AwaitToEnd(new GameData());
 
         if (getGame().getCollun() == 4 && (getGame().getArea() == 2 || getGame().getArea() == 4 || getGame().getArea() == 10 || getGame().getArea() == 14)) {
             getGame().nexColumm();
