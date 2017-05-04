@@ -17,7 +17,6 @@ public class MiniRogue implements Serializable {
     //chama metedos dos estados para implementar/alterar objetos do GameData
     private GameData GameData;
     private IStates state;
-
     //construtor
     public MiniRogue() {
         GameData = new GameData();
@@ -73,14 +72,17 @@ public class MiniRogue implements Serializable {
 //                ###############################################
 
     public void SetStartingArea(int lvl) {
-        setState(getState().setStartingArea(lvl));//devera ser SetArea e assim usamos mais a frente?
-    }                                              //vamos usar mais a frente?
+        GameData.setLastState(getState());
+        setState(getState().setStartingArea(lvl));
+    }                                              
 
     public void SetDificultylvl(int lvl) {
+        GameData.setLastState(getState());
         setState(getState().setDifficultylvl(lvl));
     }
 
     public void StartGame() {
+        GameData.setLastState(getState());
         setState(getState().startGame());
     }
 //                ###################################################
@@ -100,14 +102,17 @@ public class MiniRogue implements Serializable {
     }
 
     public void ResolvSelectedCard(int option) {
+        GameData.setLastState(getState());
         setState(getState().selectCard(option));
     }
 
     //                #############################################
 //                ##Metedos referentes ao estado AwaitTrading##
 //                #############################################
-    public boolean Buying(int option) {//nao sei ate que ponto podemos fazer
-        switch (option) {                //este switch com esta comparacao nesta classe
+    public boolean Buying(int option) {
+        
+        GameData.setLastState(getState());
+        switch (option) {                
             case 1://1 e 2 custao o mesmo
             case 2:
                 if (GameData.GetGold() >= 1)
@@ -138,6 +143,7 @@ public class MiniRogue implements Serializable {
     }
 
     public void BackToCardSelecton() {
+        GameData.setLastState(getState());
         setState(getState().backToCardSelection());
     }
 
@@ -187,11 +193,13 @@ public class MiniRogue implements Serializable {
                     break;
 
         }
+        GameData.setLastState(getState());
         setState(getState().sell(option));
         return true;
     }
 
     public void ResolveResting(int option) {
+        GameData.setLastState(getState());
         setState(getState().resolveResting(option));
     }
 
@@ -208,20 +216,24 @@ public class MiniRogue implements Serializable {
     }
 
     public void atack() {
+        GameData.setLastState(getState());
         setState(getState().attack());
     }
 
     public void useFeats() {
+        GameData.setLastState(getState());
         setState(getState().useFeats());
     }
 
     public void backToRollDices() {
+        GameData.setLastState(getState());
         setState(getState().backToRollDices());
     }
 
     public boolean useSpells(int option) {
         if (GameData.GetHowManySpells(option) == 0)
             return false;
+        GameData.setLastState(getState());
         setState(getState().useSpell(option));
         return true;
     }
@@ -231,6 +243,7 @@ public class MiniRogue implements Serializable {
     }
 
     public void letsFight() {
+        GameData.setLastState(getState());
         setState(getState().lestFight());
     }
 
