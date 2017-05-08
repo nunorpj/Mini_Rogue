@@ -8,7 +8,6 @@ package mini_rogue.textUI;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -250,9 +249,10 @@ public class TextUI {
                         if (option != 0)
                             option = option + 4;
                     }
-                    if (option != 0)
-                        if (Game.Buying(option) == false)
-                            System.out.println("no money, no funny");
+                    if (option != 0){
+                      Game.Buying(option);
+                      System.out.println(Game.getMensagemAviso());
+                    }
                 } while (option != 0);
                 break;
             case 2:

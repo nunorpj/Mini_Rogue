@@ -66,6 +66,9 @@ public class MiniRogue implements Serializable {
     public String CaracterText() {
         return GameData.CharacterText();
     }
+    public String getMensagemAviso() {
+        return GameData.getMensage();
+    }
 
 //                ###############################################
 //                ##Metedos referentes ao estado AwaitBeginning##
@@ -106,40 +109,71 @@ public class MiniRogue implements Serializable {
         setState(getState().selectCard(option));
     }
 
-    //                #############################################
+//                #############################################
 //                ##Metedos referentes ao estado AwaitTrading##
 //                #############################################
-    public boolean Buying(int option) {
+    public void Buying(int option) {
         
         GameData.setLastState(getState());
         switch (option) {                
             case 1://1 e 2 custao o mesmo
             case 2:
-                if (GameData.GetGold() >= 1)
-                    setState(getState().buy(option));
-                else return false;
+                if (GameData.GetGold() >= 1){
+                    if(option==1){
+                        if(GameData.getCharacter().getFood()<6)
+                        setState(getState().buy(option));
+                            else
+                                GameData.setMensage("You already have max food!");
+                    break;
+                    }
+                    if(option==2) {
+                        if( GameData.getCharacter().getHp()<20)
+                            setState(getState().buy(option));
+                        else
+                            GameData.setMensage("You already have max HP!");
+                    break;
+                    } 
+                }else{
+                    GameData.setMensage("No money");
+                }
+                    
                 break;
             case 3:
                 if (GameData.GetGold() >= 3)
-                    setState(getState().buy(option));
-                else return false;
+                    if(GameData.getCharacter().getHp()+4<=20)
+                        setState(getState().buy(option));
+                    else 
+                        GameData.setMensage("You can't have more tham 20 HP!!");
+                else {
+                    GameData.setMensage("No money");
+                }
                 break;
             case 4:
                 if (GameData.GetGold() >= 6)
-                    setState(getState().buy(option));
-                else return false;
+                    if(GameData.getCharacter().getArmor()<6)
+                        setState(getState().buy(option));
+                    else
+                        GameData.setMensage("You Can't have more tham 6 pieces of armor!");
+                else {
+                    GameData.setMensage("No money");
+                }
                 break;
             case 5:// 5,6,7,8 custao o mesmo
             case 6:
             case 7:
             case 8:
                 if (GameData.GetGold() >= 8)
-                    setState(getState().buy(option));
-                else return false;
+                    if(GameData.getCharacter().GetHowManySpells(5)<2)
+                        setState(getState().buy(option));
+                    else
+                        GameData.setMensage("You can't have more tham 2 spells!");
+                else {
+                    GameData.setMensage("No money");
+                }
                 break;
 
         }
-        return true;
+        
     }
 
     public void BackToCardSelecton() {
@@ -203,6 +237,9 @@ public class MiniRogue implements Serializable {
         setState(getState().resolveResting(option));
     }
 
+//                ##########################################################################
+//                ##Metedos referentes ao estado Rolleddices /waitforfeats /awaitforspells##
+//                ##########################################################################
     public String getEnemyName() {
         return getState().enemyName();
     }
@@ -225,6 +262,8 @@ public class MiniRogue implements Serializable {
         setState(getState().useFeats());
     }
 
+    
+    
     public void backToRollDices() {
         GameData.setLastState(getState());
         setState(getState().backToRollDices());
