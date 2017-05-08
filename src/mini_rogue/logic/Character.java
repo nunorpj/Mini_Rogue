@@ -10,6 +10,7 @@ import java.io.Serializable;
 import mini_rogue.logic.Spells.*;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -58,22 +59,37 @@ public class Character implements Serializable{
     }
 
     public void AddOrRemoveFood(int x) {
-        this.food = this.food + x;
+        if(this.food + x>6)
+            this.food=6;
+        else
+            this.food = this.food + x;
     }
 
     public void AddOrRemoveHp(int i) {
-        this.hp = this.hp + i;
+        if(this.hp + i>20)
+            this.hp=20;
+        else
+            this.hp = this.hp + i;
     }
 
     public void AddOrRemoveGold(int i) {
-        this.gold = this.gold + i;
+        if(this.gold + i>20)
+            this.gold=20;
+        else
+            this.gold = this.gold + i;
     }
 
     public void AddOrRemoveArmor(int i) {
-        this.armor = this.armor + i;
+        if(this.armor + i>6)
+            this.armor=6;
+        else
+            this.armor = this.armor + i;
     }
 
     public void AddSpell(Spell s) {
+        if(Spells.size()==2){
+            Spells.remove(ThreadLocalRandom.current().nextInt(0, 2));
+        }
         Spells.add(s);
     }
 
