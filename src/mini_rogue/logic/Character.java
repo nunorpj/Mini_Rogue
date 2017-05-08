@@ -105,6 +105,8 @@ public class Character implements Serializable{
                     if (Spells.get(i) instanceof HealSpell)
                         count++;
                 return count;
+            case 5://all
+                return Spells.size();
 
         }
         return 0;

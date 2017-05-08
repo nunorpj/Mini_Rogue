@@ -100,8 +100,7 @@ public class GameData implements Serializable {
     }
 
 
-    private void setCards() {//meter as cartas de em ordem random
-        //not working yet, just for testing purposes
+    private void setCards() {
 
         randomCardsSelection();
     }
@@ -208,6 +207,11 @@ public class GameData implements Serializable {
 
     public void setMensage(String mensage) {
         this.mensage = mensage;
+    }
+    public String getMensage() {
+        String s = this.mensage;
+        this.mensage="";
+        return s;
     }
 
     public int getDungeonLvl() {
