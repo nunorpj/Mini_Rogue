@@ -314,9 +314,11 @@ public class TextUI {
             System.out.println("\tRESTING!!");
             System.out.println("1-Reinforce your weapon [+1 xp]");
             System.out.println("2-Search for Ration [+1 Food]");
-            System.out.println("3-Heal [+2 Hp]");
-
-            System.out.println();
+            System.out.print("3-Heal [+2 Hp]");
+            if(Game.getCharacterHP()==20)
+                System.out.println("--FULL");
+            else 
+                 System.out.println();
             System.out.print("-> ");
             try {
                 if (sc.hasNextInt())
@@ -330,7 +332,10 @@ public class TextUI {
                 continue;
             }
         } while (option < 1 || option > 3);
-        Game.ResolveResting(option);
+        if(option==3 && Game.getCharacterHP()==20)
+            System.out.println("You can't have more tham 20 hp!");
+        else
+            Game.ResolveResting(option);
     }
 
 

@@ -232,10 +232,17 @@ public class MiniRogue implements Serializable {
         return true;
     }
 
+//                ######################################################
+//                ##Metedos referentes ao estado aWaitoptionsellection##
+//                ######################################################
     public void ResolveResting(int option) {
         GameData.setLastState(getState());
         setState(getState().resolveResting(option));
     }
+     public int getCharacterHP() {
+        return GameData.getCharacter().getHp();
+    }
+
 
 //                ##########################################################################
 //                ##Metedos referentes ao estado Rolleddices /waitforfeats /awaitforspells##
@@ -290,4 +297,5 @@ public class MiniRogue implements Serializable {
         return GameData.isaWinner();
     }
 
+   
 }
