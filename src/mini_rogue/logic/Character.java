@@ -226,5 +226,15 @@ public class Character implements Serializable{
                 break;
         }
     }
+    
+    public int getNDices(){
+        
+        return this.dices.size();
+    }
+
+    public int getXp() {
+        return this.xp;
+    }
 }
+
     
