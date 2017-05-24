@@ -431,8 +431,32 @@ public class TextUI {
             case 2:
             Game.useFeats();
                 break;
-            case 3:
+            case 0:
+                Quit=true;
                 break;
+        }
+         if (Quit){
+            option=-1;
+            while(option!=0&&option!=1){
+                System.out.println("Do you wanna save this game?");
+                System.out.println("1-Yes");
+                System.out.println("0-No");
+                System.out.println();
+                System.out.print("-> ");
+                try {
+                    if (sc.hasNextInt())
+                        option = sc.nextInt();
+                    else
+                        sc.next();
+                } catch (InputMismatchException ex) {
+                    System.out.println("Invalid Option! -> " + ex.getMessage());
+                    continue;
+                }
+            }
+            if(option==1){
+                 handleSaveGameToFileOption();
+
+            }
         }
 
     }
@@ -499,30 +523,57 @@ public class TextUI {
 
     public void uiWaitForFealt() {
         int option = 0;
+        int option2=0;
         do {
             for (int i = 0; i < ((WaitForFeats) Game.getState()).getNumberOfDices(); ++i) {
                 System.out.println(" Dice " + (i + 1) + " : " + ((WaitForFeats) Game.getState()).getDiceNumber(i));
             }
 
             System.out.println("0 - Skip");
-            System.out.print("-> ");
+            System.out.print("Dice -> ");
 
             try {
                 if (sc.hasNextInt()) {
                     option = sc.nextInt();
                 } else
                     sc.next();
-                if (option < 0 || option > 4)
+                if (option < 0 || option >  Game.getNunbDices())
                     throw new InputMismatchException("Not between 0 and " + ((WaitForFeats) Game.getState()).getNumberOfDices() + ".");
             } catch (InputMismatchException ex) {
                 System.out.println("Invalid Option! -> " + ex.getMessage());
                 continue;
             }
-
-            ((WaitForFeats) Game.getState()).analize(option);
-            Game.backToRollDices();             // devia voltar ao RolledDices
-            break;
+            if(option>0 && option<= Game.getNunbDices()){
+                System.out.println("==========================================================");
+                System.out.println("1-Spend 2 hp");
+                System.out.println("2-Spend 1 xp");
+                System.out.println("0-Cancel");
+                System.out.println();
+                System.out.println("->");
+                try {
+                    if (sc.hasNextInt()) {
+                        option2 = sc.nextInt();
+                    } else
+                        sc.next();
+                         if (option2 < 0 || option2 >  2)
+                            throw new InputMismatchException("Not between 0 and 2.");
+                } catch (InputMismatchException ex) {
+                        System.out.println("Invalid Option! -> " + ex.getMessage());
+                continue;
+                }
+            }
+            if(Game.CheckIfYouCan(option2)==true){
+                Game.featsUsed(option2, option);
+                 break;
+            }
+            else{
+                    System.out.println("Invalide option! You don't enough status to use feats");
+                    }
+            
         } while (option < 0 || option > ((WaitForFeats) Game.getState()).getNumberOfDices() - 1);
+        
+        if(option==0)
+                       Game.backToRollDices();
     }
 
     private void uiAwaintToEnd() {

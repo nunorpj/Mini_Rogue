@@ -136,6 +136,15 @@ public class StateAdapter implements IStates {
     public IStates lestFight() {
         return this;
     }
+    @Override
+    public IStates analize(int option, int option2) {
+        return this;
+    }
+
+    @Override
+    public IStates BackToRolledDices() {
+       return this;
+    }
 
 
 }
