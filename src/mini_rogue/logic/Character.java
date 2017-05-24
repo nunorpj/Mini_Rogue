@@ -30,7 +30,7 @@ public class Character implements Serializable{
         this.lvl = 1;
         this.armor = 1;
         this.hp = 5;
-        this.gold = 50;
+        this.gold = 5;
         this.food = 6;
         this.xp = 0;
         Spells = new ArrayList<>();

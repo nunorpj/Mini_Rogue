@@ -321,5 +321,23 @@ public class MiniRogue implements Serializable {
                  setState( getState().BackToRolledDices());
     }
     
+<<<<<<< HEAD
+    public int getCharArmor(){
+        return GameData.getArmor();
+    }
+    
+    public int getCharXp(){
+        return GameData.getCharacter().getXp();
+    }
+    public int getcharFood(){
+        return GameData.getCharacter().getFood();
+    }
+   public int getcharGold(){
+        return GameData.getCharacter().getGold();
+    }
+    
+   
+=======
 
+>>>>>>> origin/master
 }
