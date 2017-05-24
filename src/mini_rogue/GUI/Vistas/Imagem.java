@@ -17,6 +17,7 @@ public class Imagem implements Constantes{
     private static Map<String, Image> imagens = new HashMap<String, Image>();
     static {
         try {
+<<<<<<< HEAD
            imagens.put(LOGO, ImageIO.read(Resources.getResourceFile(PATH_IMG_LOGO)));
            imagens.put(TOCHA,ImageIO.read(Resources.getResourceFile(PATH_IMG_TOCHA)));
            imagens.put(BACK,ImageIO.read(Resources.getResourceFile(PATH_IMG_BACK)));
@@ -43,6 +44,10 @@ public class Imagem implements Constantes{
            imagens.put(ICE,ImageIO.read(Resources.getResourceFile(PATCH_IMG_ICE)));
 
 
+=======
+            imagens.put(LOGO, ImageIO.read(Resources.getResourceFile(PATH_IMG_LOGO)));
+            imagens.put(TOCHA,ImageIO.read(Resources.getResourceFile(PATH_IMG_TOCHA)));
+>>>>>>> origin/master
         } catch (IOException e) {
             System.out.print(e);
         }

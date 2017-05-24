@@ -9,7 +9,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+<<<<<<< HEAD
 import javax.swing.JButton;
+=======
+>>>>>>> origin/master
 import javax.swing.JPanel;
 
 /**
@@ -17,11 +20,19 @@ import javax.swing.JPanel;
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public interface Constantes {
+<<<<<<< HEAD
     int  ALTURA=900;
     int LARGURA=1440;
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     int x=dim.width/2-720;
     int y=dim.height/2-450;
+=======
+    int  ALTURA=720;
+    int LARGURA=1280;
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    int x=dim.width/2-640;
+    int y=dim.height/2-360;
+>>>>>>> origin/master
     
     Color margem = new Color(201,180,137);
           
@@ -30,7 +41,10 @@ public interface Constantes {
         JPanel e =new JPanel();
         JPanel w =new JPanel();
     
+<<<<<<< HEAD
         Dimension bSize= new Dimension(250,50);
+=======
+>>>>>>> origin/master
     
     
     
@@ -49,6 +63,7 @@ public interface Constantes {
     String TOCHA= "tocha";
     String PATH_IMG_TOCHA= "imagens/tocha.png";
     
+<<<<<<< HEAD
     String BACK= "back";
     String PATH_IMG_BACK= "imagens/back.png";
     
@@ -109,4 +124,7 @@ public interface Constantes {
    String PATCH_IMG_ICE="imagens/ICE.png";
 
 
+=======
+    
+>>>>>>> origin/master
 }

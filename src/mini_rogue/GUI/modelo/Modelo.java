@@ -7,17 +7,21 @@
 package mini_rogue.GUI.modelo;
 
 import java.util.Observable;
+<<<<<<< HEAD
 import mini_rogue.GUI.Vistas.Constantes;
 import mini_rogue.GUI.Vistas.VistaFrame;
 import mini_rogue.logic.GameData;
 import mini_rogue.logic.MiniRogue;
 import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.*;
+=======
+>>>>>>> origin/master
 
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
+<<<<<<< HEAD
 public class Modelo extends Observable implements Constantes{
     private MiniRogue miniRogue;
     
@@ -84,10 +88,16 @@ public int getGold(){
 
     public void start() {
         miniRogue.StartGame();
+=======
+public class Modelo extends Observable{
+
+    public void oi(){
+>>>>>>> origin/master
         setChanged();
         notifyObservers();
     }
     
+<<<<<<< HEAD
 public void setstartarea(int x){
     miniRogue.SetStartingArea(x);
 }
@@ -96,3 +106,7 @@ public void setstartDif(int x){
 
 }
 }
+=======
+
+}
+>>>>>>> origin/master

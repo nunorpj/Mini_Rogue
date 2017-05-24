@@ -7,25 +7,41 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import mini_rogue.logic.states.*;
+=======
+>>>>>>> origin/master
 
 
 public class VistaFrame extends JFrame implements  Observer,Constantes {
 
     private Modelo modelo;
     private Container cp;
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/master
     public VistaFrame(Modelo m)  {
         super("The Test");
         modelo=m;
         modelo.addObserver(this);
         setLocation(x, y);
         setSize(LARGURA, ALTURA);
+<<<<<<< HEAD
         cp=getContentPane();
         setResizable(false);
        
         criaObj();
         DispObj();
         add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
+=======
+        
+        criaMargem();
+        DispObj();
+       
+        
+        
+>>>>>>> origin/master
         
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,6 +51,7 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
        
     @Override
     public void update(Observable o, Object o1) {
+<<<<<<< HEAD
         IStates state=modelo.getState();
         cp.removeAll();
         DispObj();
@@ -65,6 +82,29 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
         //add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
         
         //add( new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
+=======
+        
+    }
+
+    private void criaMargem() {
+        n.setBackground(margem);
+        e.setBackground(margem);
+        w.setBackground(margem);
+        s.setBackground(margem);   
+    
+    }
+
+    private void DispObj() {
+        setLayout(new BorderLayout());
+        add(n,BorderLayout.NORTH);
+        add(s,BorderLayout.SOUTH);
+        add(e,BorderLayout.EAST);
+        add(w,BorderLayout.WEST);
+
+        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
+        
+        //add(new vista2(modelo));    
+>>>>>>> origin/master
     }
 
 }

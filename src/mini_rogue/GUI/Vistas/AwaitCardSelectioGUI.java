@@ -6,6 +6,7 @@
 
 package mini_rogue.GUI.Vistas;
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,10 +33,17 @@ import static mini_rogue.GUI.Vistas.Constantes.*;
 import mini_rogue.GUI.modelo.Modelo;
 
 
+=======
+import java.awt.Color;
+import javax.swing.JPanel;
+import mini_rogue.GUI.modelo.Modelo;
+
+>>>>>>> origin/master
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
+<<<<<<< HEAD
 public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private Modelo modelo;
         private JPanel rightPanel;
@@ -72,10 +80,15 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private JProgressBar xp;
         private JProgressBar gold;
         private JProgressBar armor;
+=======
+public class AwaitCardSelectioGUI extends JPanel {
+        private Modelo modelo;
+>>>>>>> origin/master
 
     AwaitCardSelectioGUI(Modelo m){
         this.modelo=m;
         setBackground(Color.BLACK);
+<<<<<<< HEAD
         
         setLayout(new BorderLayout());
         
@@ -422,4 +435,7 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
  
 
 
+=======
+    }
+>>>>>>> origin/master
 }
