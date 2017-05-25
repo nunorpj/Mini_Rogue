@@ -9,7 +9,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+<<<<<<< HEAD
 import javax.swing.JButton;
+=======
+<<<<<<< HEAD
+import javax.swing.JButton;
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 import javax.swing.JPanel;
 
 /**
@@ -17,11 +24,25 @@ import javax.swing.JPanel;
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public interface Constantes {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
     int  ALTURA=900;
     int LARGURA=1440;
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     int x=dim.width/2-720;
     int y=dim.height/2-450;
+<<<<<<< HEAD
+=======
+=======
+    int  ALTURA=720;
+    int LARGURA=1280;
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    int x=dim.width/2-640;
+    int y=dim.height/2-360;
+>>>>>>> origin/master
+>>>>>>> origin/master
     
     Color margem = new Color(201,180,137);
           
@@ -30,7 +51,14 @@ public interface Constantes {
         JPanel e =new JPanel();
         JPanel w =new JPanel();
     
+<<<<<<< HEAD
         Dimension bSize= new Dimension(250,50);
+=======
+<<<<<<< HEAD
+        Dimension bSize= new Dimension(250,50);
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
     
     
     
@@ -49,6 +77,10 @@ public interface Constantes {
     String TOCHA= "tocha";
     String PATH_IMG_TOCHA= "imagens/tocha.png";
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
     String BACK= "back";
     String PATH_IMG_BACK= "imagens/back.png";
     
@@ -78,11 +110,16 @@ public interface Constantes {
     String EVENT_CARD="Event Card";
     String PATH_IMG_EVENT_CARD="imagens/event_front.png";
     
+<<<<<<< HEAD
     String RESTING_CARD_BIG="Resting Card big";
     String PATH_IMG_RESTING_CARD_BIG="imagens/resting_front_big.png";
     
     String MERCHANT_CARD_BIG="Merchant Card big";
     String PATH_IMG_MERCHANT_CARD_BIG="imagens/merchant_front_big.png";
+=======
+    
+    
+>>>>>>> origin/master
     
     String VIDA="hp";
     String PATH_IMG_VIDA="imagens/hp.png";
@@ -112,4 +149,10 @@ public interface Constantes {
    String PATCH_IMG_ICE="imagens/ICE.png";
 
 
+<<<<<<< HEAD
+=======
+=======
+    
+>>>>>>> origin/master
+>>>>>>> origin/master
 }

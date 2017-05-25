@@ -6,6 +6,10 @@
 
 package mini_rogue.GUI.Vistas;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -32,10 +36,23 @@ import static mini_rogue.GUI.Vistas.Constantes.*;
 import mini_rogue.GUI.modelo.Modelo;
 
 
+<<<<<<< HEAD
+=======
+=======
+import java.awt.Color;
+import javax.swing.JPanel;
+import mini_rogue.GUI.modelo.Modelo;
+
+>>>>>>> origin/master
+>>>>>>> origin/master
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private Modelo modelo;
         private JPanel rightPanel;
@@ -72,10 +89,21 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private JProgressBar xp;
         private JProgressBar gold;
         private JProgressBar armor;
+<<<<<<< HEAD
+=======
+=======
+public class AwaitCardSelectioGUI extends JPanel {
+        private Modelo modelo;
+>>>>>>> origin/master
+>>>>>>> origin/master
 
     AwaitCardSelectioGUI(Modelo m){
         this.modelo=m;
         setBackground(Color.BLACK);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
         
         setLayout(new BorderLayout());
         
@@ -87,7 +115,10 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
        
     private void CriaCards(){
         card0=new JButton();
+<<<<<<< HEAD
         String teste1=modelo.getCardName(0);
+=======
+>>>>>>> origin/master
         card0.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(0))));
         card0.setMargin(new Insets(0, 0, 0, 0));
         card0.setBorder(null);      
@@ -423,4 +454,10 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
  
 
 
+<<<<<<< HEAD
+=======
+=======
+    }
+>>>>>>> origin/master
+>>>>>>> origin/master
 }
