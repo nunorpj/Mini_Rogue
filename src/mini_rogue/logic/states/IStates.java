@@ -47,4 +47,8 @@ public interface IStates extends Serializable {
     IStates moveON();
 
     IStates quit();
+   public IStates analize(int option, int option2);
+
+    public IStates BackToRolledDices();
+
 }
