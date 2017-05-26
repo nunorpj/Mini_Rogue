@@ -25,7 +25,7 @@ public class TrapCard extends card {
         if (rand == -1)
             return 0;
         else {
-            System.out.println("Debug: trap = " + rand);
+           // System.out.println("Debug: trap = " + rand);
             return rand;
         }
     }

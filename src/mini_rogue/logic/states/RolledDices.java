@@ -30,6 +30,10 @@ public class RolledDices extends StateAdapter {
     public int getMonsterLife() {
         return enemy.getMonsterHp();
     }
+    
+     public int getMonsterMaxhp() {
+        return enemy.getMonsterMaxHp();
+    }
         public int getMonsterAttack() {
       
         return enemy.getMonsterAtack();
@@ -66,6 +70,7 @@ public class RolledDices extends StateAdapter {
 
     }
 
+    
     @Override
     public IStates useFeats() {
         return new WaitForFeats(getGame(), this.enemy);

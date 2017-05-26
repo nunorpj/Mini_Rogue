@@ -40,17 +40,28 @@ public class WaitForFeats extends StateAdapter {
         }
         return true;
     }
-
-    public void analize(int option) {
-        if (option == 0)
-            return;
-        else if (rollDiceAgain(option - 1))
-            getGame().setFeatsUsed(true);
-
-    }
-
     @Override
-    public IStates backToRollDices() {
+    public IStates analize(int option, int option2) {
+                         switch(option2){
+                      case 1:
+                          getGame().getCharacter().AddOrRemoveHp(-2);
+                          break;
+                      case 2:
+                          getGame().getCharacter().AddOrRemoveXp(-1);
+                          break;
+                  }
+        
+        if (option == 0)
+            return this;
+        else if (rollDiceAgain(option - 1)){
+            getGame().setFeatsUsed(true);
+           return new RolledDices(getGame(), enemy); 
+        }
+        return this;
+    }
+    @Override
+    public IStates BackToRolledDices() {
         return new RolledDices(getGame(), enemy);
     }
+
 }

@@ -8,7 +8,10 @@ package mini_rogue.logic;
 
 import java.io.Serializable;
 import mini_rogue.logic.states.AwaitBeginning;
+import mini_rogue.logic.states.AwaitTrading;
 import mini_rogue.logic.states.IStates;
+import mini_rogue.logic.states.RolledDices;
+import mini_rogue.logic.states.WaitForFeats;
 
 /**
  * @author Sammy Guergachi <sguergachi at gmail.com>
@@ -127,9 +130,9 @@ public class MiniRogue implements Serializable {
                     break;
                     }
                     if(option==2) {
-                        if( GameData.getCharacter().getHp()<20)
+                        if( GameData.getCharacter().getHp()<20){
                             setState(getState().buy(option));
-                        else
+                        }else
                             GameData.setMensage("You already have max HP!");
                     break;
                     } 
@@ -269,13 +272,6 @@ public class MiniRogue implements Serializable {
         setState(getState().useFeats());
     }
 
-    
-    
-    public void backToRollDices() {
-        GameData.setLastState(getState());
-        setState(getState().backToRollDices());
-    }
-
     public boolean useSpells(int option) {
         if (GameData.GetHowManySpells(option) == 0)
             return false;
@@ -297,5 +293,48 @@ public class MiniRogue implements Serializable {
         return GameData.isaWinner();
     }
 
+   public int getNunbDices(){
+       return GameData.getCharacter().getNDices();
+   }
+
+    public boolean CheckIfYouCan(int option2) {
+        switch(option2){
+            case 1:
+                    if(GameData.getCharacter().getHp()>2)
+                        return true;
+                break;
+            case 2:
+                  if(GameData.getCharacter().getXp()>1)
+                        return true;
+                break;
+        }
+        return false;
+    }
+
+    public void featsUsed(int option2, int option) {
+
+                 GameData.setLastState(getState());
+                 setState( getState().analize(option, option2));
+    }
+
+    public void backToRollDices() {
+                    GameData.setLastState(getState());
+                 setState( getState().BackToRolledDices());
+    }
+    
+    public int getCharArmor(){
+        return GameData.getArmor();
+    }
+    
+    public int getCharXp(){
+        return GameData.getCharacter().getXp();
+    }
+    public int getcharFood(){
+        return GameData.getCharacter().getFood();
+    }
+   public int getcharGold(){
+        return GameData.getCharacter().getGold();
+    }
+    
    
 }

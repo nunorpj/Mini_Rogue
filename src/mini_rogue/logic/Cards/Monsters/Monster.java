@@ -20,7 +20,7 @@ public class Monster extends card {
     private int Reward;
     private int hp;
     private boolean poisoned = false;
-    
+    private int maxHp=-999;
     
    public Monster(String nome, GameData game) {
         super(nome, game);
@@ -35,6 +35,8 @@ public class Monster extends card {
    }
    public void setHp(int hp){
        this.hp=hp;
+       if(maxHp==-999)
+           maxHp=hp;
    }
    public void setName(String name){
        this.monsterName=name;
@@ -52,7 +54,10 @@ public class Monster extends card {
     public int getMonsterHp() {
         return this.hp;
     }
-
+   public int getMonsterMaxHp() {
+        return this.maxHp;
+    }
+    
     public void inflictDmgToMonster(int i) {
         this.hp = this.hp - i;
     }
