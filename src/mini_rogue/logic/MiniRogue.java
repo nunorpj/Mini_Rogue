@@ -322,6 +322,13 @@ public class MiniRogue implements Serializable {
                  setState( getState().BackToRolledDices());
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
     public int getCharArmor(){
         return GameData.getArmor();
     }
@@ -337,4 +344,7 @@ public class MiniRogue implements Serializable {
     }
     
    
+=======
+
+>>>>>>> origin/master
 }

@@ -7,17 +7,39 @@
 package mini_rogue.GUI.modelo;
 
 import java.util.Observable;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import mini_rogue.GUI.Vistas.Constantes;
 import mini_rogue.GUI.Vistas.VistaFrame;
 import mini_rogue.logic.GameData;
 import mini_rogue.logic.MiniRogue;
 import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.*;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 public class Modelo extends Observable implements Constantes{
     private MiniRogue miniRogue;
     
@@ -30,12 +52,15 @@ public String getCardName(int index){
         case 0:
             return miniRogue.CardNameAtIndex(0);
         case 1:
+<<<<<<< HEAD
          {
             if(miniRogue.Collunlvl()>=2)
                     return miniRogue.CardNameAtIndex(index);
             else
                     return BACK;
         }
+=======
+>>>>>>> origin/master
         case 2:
         {
             if(miniRogue.Collunlvl()>=2)
@@ -51,6 +76,7 @@ public String getCardName(int index){
                     return BACK;
         }
         case 4:
+<<<<<<< HEAD
          {
             if(miniRogue.Collunlvl()>=4)
                     return miniRogue.CardNameAtIndex(index);
@@ -58,6 +84,8 @@ public String getCardName(int index){
                     return BACK;
         }
             
+=======
+>>>>>>> origin/master
         case 5:
          {
             if(miniRogue.Collunlvl()>=4)
@@ -97,10 +125,28 @@ public int getGold(){
 
     public void start() {
         miniRogue.StartGame();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+public class Modelo extends Observable{
+
+    public void oi(){
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
         setChanged();
         notifyObservers();
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 public void setstartarea(int x){
     miniRogue.SetStartingArea(x);
 }
@@ -108,11 +154,16 @@ public void setstartDif(int x){
     miniRogue.SetDificultylvl(x);
 
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 public void RestingSelectoin(int i){
     miniRogue.ResolveResting(i);
    setChanged();
     notifyObservers();
 }
+<<<<<<< HEAD
 public int getstock(int i){
     return miniRogue.getStockForSell(i);
 }
@@ -192,3 +243,14 @@ public int getstock(int i){
       }
       
 }
+=======
+
+}
+=======
+}
+=======
+
+}
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master

@@ -6,20 +6,27 @@
 
 package mini_rogue.GUI.Vistas;
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
+=======
+>>>>>>> origin/master
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+<<<<<<< HEAD
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+=======
+>>>>>>> origin/master
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+<<<<<<< HEAD
 import javax.swing.JProgressBar;
 import javax.swing.SpringLayout;
 import javax.swing.border.LineBorder;
@@ -36,6 +43,14 @@ import static mini_rogue.GUI.Vistas.Constantes.RESTING_CARD_BIG;
 import static mini_rogue.GUI.Vistas.Constantes.SHIELD;
 import static mini_rogue.GUI.Vistas.Constantes.VIDA;
 import static mini_rogue.GUI.Vistas.Constantes.XP;
+=======
+import javax.swing.SpringLayout;
+import static mini_rogue.GUI.Vistas.Constantes.ALTURA;
+import static mini_rogue.GUI.Vistas.Constantes.COIN;
+import static mini_rogue.GUI.Vistas.Constantes.FUNDO;
+import static mini_rogue.GUI.Vistas.Constantes.LARGURA;
+import static mini_rogue.GUI.Vistas.Constantes.RESTING_CARD_BIG;
+>>>>>>> origin/master
 import static mini_rogue.GUI.Vistas.Constantes.bSize;
 import static mini_rogue.GUI.Vistas.Constantes.margem;
 import mini_rogue.GUI.modelo.Modelo;
@@ -65,6 +80,7 @@ public class AwaitForTradingGUI extends JPanel implements Constantes{
     private JLabel SellFireLabel;
     private JLabel SellIceLabel;
     private JLabel SellPoisonLabel;
+<<<<<<< HEAD
     private JLabel SellHealLabel;
     private JButton[] sell;    
     private JButton skip;
@@ -89,6 +105,12 @@ public class AwaitForTradingGUI extends JPanel implements Constantes{
    private JProgressBar armor;
 AwaitForTradingGUI(Modelo m) {
         modelo=m; 
+=======
+    private JButton[] sell;    
+
+AwaitForTradingGUI(Modelo m) {
+            modelo=m; 
+>>>>>>> origin/master
             
         criaObj();
         DispObj();
@@ -191,6 +213,7 @@ AwaitForTradingGUI(Modelo m) {
             SellAmorLabel=new JLabel("+3      -Armor Piece: -1 Armor");
             SellAmorLabel.setForeground(Color.WHITE);
             SellAmorLabel.setFont(new Font("Arial", Font.BOLD, 15));
+<<<<<<< HEAD
             
             SellFireLabel=new JLabel("+4      -Fire Spell: -1 Fire Spell");
             SellFireLabel.setForeground(Color.WHITE);
@@ -402,6 +425,8 @@ AwaitForTradingGUI(Modelo m) {
         INFOLayout.putConstraint(SpringLayout.WEST, heal, 620, SpringLayout.WEST, InfoPanel);
         INFOLayout.putConstraint(SpringLayout.NORTH, heal, 60, SpringLayout.WEST, InfoPanel);
         InfoPanel.add(heal); 
+=======
+>>>>>>> origin/master
     }
 
     private void DispObj() {
@@ -417,6 +442,7 @@ AwaitForTradingGUI(Modelo m) {
         this.add(SellJPanel);
         dipsSellPanel();
         
+<<<<<<< HEAD
         dispInfoPanel();
         
         
@@ -447,6 +473,11 @@ AwaitForTradingGUI(Modelo m) {
         sell[3].addActionListener(new Sell3Listner());
         sell[4].addActionListener(new Sell4Listner());
         skip.addActionListener(new SkipListner());
+=======
+    }
+
+    private void RegistaListeners() {
+>>>>>>> origin/master
     }
     
     private void dipsSellPanel() {
@@ -458,7 +489,10 @@ AwaitForTradingGUI(Modelo m) {
         SELLLayout.putConstraint(SpringLayout.NORTH, SellLabel, 10, SpringLayout.WEST, SellJPanel);
         SellJPanel.add(SellLabel);
         
+<<<<<<< HEAD
         //armor piece
+=======
+>>>>>>> origin/master
         SELLLayout.putConstraint(SpringLayout.WEST, SellAmorLabel, 30, SpringLayout.WEST, SellJPanel);
         SELLLayout.putConstraint(SpringLayout.NORTH, SellAmorLabel, 60, SpringLayout.WEST, SellJPanel);
         SellJPanel.add(SellAmorLabel);
@@ -466,6 +500,7 @@ AwaitForTradingGUI(Modelo m) {
         SELLLayout.putConstraint(SpringLayout.WEST, Coin_Icon[8], 50, SpringLayout.WEST, SellJPanel);
         SELLLayout.putConstraint(SpringLayout.NORTH, Coin_Icon[8], 60, SpringLayout.WEST, SellJPanel);
         SellJPanel.add(Coin_Icon[8]);
+<<<<<<< HEAD
         //fire spell
         SELLLayout.putConstraint(SpringLayout.WEST, SellFireLabel, 30, SpringLayout.WEST, SellJPanel);
         SELLLayout.putConstraint(SpringLayout.NORTH, SellFireLabel, 120, SpringLayout.WEST, SellJPanel);
@@ -517,6 +552,8 @@ AwaitForTradingGUI(Modelo m) {
         SELLLayout.putConstraint(SpringLayout.WEST, sell[4], 620, SpringLayout.WEST, SellJPanel);
         SELLLayout.putConstraint(SpringLayout.NORTH, sell[4], 120, SpringLayout.WEST, SellJPanel);
         SellJPanel.add(sell[4]);
+=======
+>>>>>>> origin/master
     }
     
     private void dispBuyPanel() {
@@ -633,7 +670,11 @@ public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Image fundo=Imagem.getImagem(FUNDO);
         Image Merchant_image=Imagem.getImagem(MERCHANT_CARD_BIG);
+<<<<<<< HEAD
         if(fundo!=null||Merchant_image!=null){
+=======
+        if(fundo!=null){
+>>>>>>> origin/master
             
              g.drawImage(fundo, 0, 0, LARGURA, ALTURA,this);
             g.drawImage(Merchant_image, 100,25,550,790,this);
@@ -642,6 +683,7 @@ public void paintComponent(Graphics g) {
         }
    }
 
+<<<<<<< HEAD
 private  class Buy0Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -739,4 +781,9 @@ private  class SkipListner implements ActionListener {
 
         }
 }
+=======
+
+
+
+>>>>>>> origin/master
 }

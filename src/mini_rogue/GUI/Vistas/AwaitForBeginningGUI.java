@@ -11,6 +11,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -20,22 +27,74 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+import java.awt.Graphics;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
+import javafx.scene.layout.Border;
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+import javax.swing.JPanel;
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
+<<<<<<< HEAD
 public class AwaitForBeginningGUI extends JPanel implements Constantes{
     private JPanel centro;
     private JPanel menu;
+=======
+<<<<<<< HEAD
+public class AwaitForBeginningGUI extends JPanel implements Constantes{
+    private JPanel centro;
+    private JPanel menu;
+=======
+<<<<<<< HEAD
+public class AwaitForBeginningGUI extends JPanel implements Constantes{
+    private JPanel centro;
+    private JPanel menu;
+=======
+public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
+    static private JPanel centro;
+    private JPanel menu;
+    static private JPanel startingAreaPanel;
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
     private Modelo modelo;
     private JButton start;
     private JButton startingArea;
@@ -43,6 +102,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
     private JButton load;
     private JButton quit;
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
     private JSlider   area;
     private JLabel    choseArea;
     private JPanel startingAreaPanel;
@@ -53,10 +119,28 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
     private JSlider  DificultyJSlider;
     private JButton saveDificulty;
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
         AwaitForBeginningGUI(Modelo m){
             this.modelo=m;
             setBackground(Color.BLACK);
             setLayout(new BorderLayout());
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            modelo.addObserver(this);
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
             criaObjGraf();
             disporVista();
             registarListeners();
@@ -66,6 +150,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         centro=new JPanel();
         centro.setBackground(Color.blue);
         
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
         menu=new JPanel();
         menu.setBackground(Color.black);
         
@@ -191,6 +282,60 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         saveDificulty.setMaximumSize(bSize);
         saveDificulty.setMinimumSize(bSize);
         saveDificulty.setPreferredSize(bSize);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        
+        menu=new JPanel();
+        menu.setBackground(Color.black);
+        
+        startingAreaPanel=new JPanel();
+        startingAreaPanel.setBackground(Color.yellow);
+        
+        
+        start=new JButton(Start);
+        start.setAlignmentX(Component.CENTER_ALIGNMENT);
+        start.setMaximumSize(new Dimension(150,25));
+        start.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        start.setBackground(new Color(15,145,99));
+        start.setForeground(Color.white);
+        
+        startingArea= new JButton(StartingArea);
+        startingArea.setAlignmentX(Component.CENTER_ALIGNMENT);
+        startingArea.setMaximumSize(new Dimension(150,25));
+        startingArea.setMaximumSize(new Dimension(150,25));
+        startingArea.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        startingArea.setBackground(new Color(15,145,99));
+        startingArea.setForeground(Color.white);
+        
+        startingDificulty = new JButton(StartingDificulty);
+        startingDificulty.setAlignmentX(Component.CENTER_ALIGNMENT);
+        startingDificulty.setMaximumSize(new Dimension(150,25));
+        startingDificulty.setMaximumSize(new Dimension(150,25));
+        startingDificulty.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        startingDificulty.setBackground(new Color(15,145,99));
+        startingDificulty.setForeground(Color.white);
+                
+        load=new JButton(Load);
+        load.setAlignmentX(Component.CENTER_ALIGNMENT);
+        load.setMaximumSize(new Dimension(150,25));
+        load.setMaximumSize(new Dimension(150,25));
+        load.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        load.setBackground(new Color(15,145,99));
+        load.setForeground(Color.white);
+               
+        quit=new JButton(Quit);
+        quit.setAlignmentX(Component.CENTER_ALIGNMENT);
+        quit.setMaximumSize(new Dimension(150,25));
+        quit.setMaximumSize(new Dimension(150,25));
+        quit.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        quit.setBackground(new Color(15,145,99));
+        quit.setForeground(Color.white);
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
     }
 
     private void disporVista() 
@@ -199,6 +344,16 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
 
           this.add(menu,BorderLayout.SOUTH);
           menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+          menu.add(Box.createRigidArea(new Dimension(0,20)));
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
           menu.add(start);
           menu.add(Box.createRigidArea(new Dimension(0,10)));
           menu.add(startingArea);
@@ -208,6 +363,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
           menu.add(load);
           menu.add(Box.createRigidArea(new Dimension(0,10)));
           menu.add(quit);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
           menu.add(Box.createRigidArea(new Dimension(0,20)));
           
           
@@ -252,6 +414,23 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
     }
     
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+          menu.add(Box.createRigidArea(new Dimension(0,100)));
+    }
+        
+
+    private void registarListeners() {
+        start.addActionListener(new StartListener());
+        startingArea.addActionListener(new StartIngAreaListner());
+    }
+        
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
     @Override
      public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -271,6 +450,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
             
          }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 
   private  class saveDificultyListner implements ActionListener {
         @Override
@@ -323,6 +509,30 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         public void actionPerformed(ActionEvent ae) {
          startAreaMenu();
          
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+    @Override
+    public void update(Observable o, Object o1) {
+         repaint();
+    }
+
+    private static class StartListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            //modelo.start()
+        }
+    }
+
+    private static class StartIngAreaListner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+             //add(startingAreaPanel);
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
         }
     }
 }
