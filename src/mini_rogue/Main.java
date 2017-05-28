@@ -17,8 +17,13 @@ import mini_rogue.GUI.modelo.Modelo;
 public class Main {
 
     public static void main(String[] args) {
+<<<<<<< HEAD
+       //TextUI textUI = new TextUI(new MiniRogue());
+       //textUI.run();
+=======
         //TextUI textUI = new TextUI(new MiniRogue());
        // textUI.run();
+>>>>>>> origin/master
        Modelo m=new Modelo();
        new VistaFrame(m);
     }

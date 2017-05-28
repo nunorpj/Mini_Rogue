@@ -12,6 +12,12 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -21,6 +27,10 @@ import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
 import java.awt.Graphics;
 import java.awt.GridBagLayout;
@@ -32,17 +42,31 @@ import java.util.Observable;
 import java.util.Observer;
 import javafx.scene.layout.Border;
 >>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
 import javax.swing.JPanel;
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
 
 /**
@@ -54,10 +78,22 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
     private JPanel centro;
     private JPanel menu;
 =======
+<<<<<<< HEAD
+public class AwaitForBeginningGUI extends JPanel implements Constantes{
+    private JPanel centro;
+    private JPanel menu;
+=======
+<<<<<<< HEAD
+public class AwaitForBeginningGUI extends JPanel implements Constantes{
+    private JPanel centro;
+    private JPanel menu;
+=======
 public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
     static private JPanel centro;
     private JPanel menu;
     static private JPanel startingAreaPanel;
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
     private Modelo modelo;
     private JButton start;
@@ -67,6 +103,12 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
     private JButton quit;
     
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
     private JSlider   area;
     private JLabel    choseArea;
     private JPanel startingAreaPanel;
@@ -77,7 +119,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
     private JSlider  DificultyJSlider;
     private JButton saveDificulty;
     
+<<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
         AwaitForBeginningGUI(Modelo m){
             this.modelo=m;
@@ -85,7 +133,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
             setLayout(new BorderLayout());
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
             modelo.addObserver(this);
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
             criaObjGraf();
             disporVista();
@@ -97,6 +151,12 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         centro.setBackground(Color.blue);
         
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
         menu=new JPanel();
         menu.setBackground(Color.black);
         
@@ -222,6 +282,10 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         saveDificulty.setMaximumSize(bSize);
         saveDificulty.setMinimumSize(bSize);
         saveDificulty.setPreferredSize(bSize);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
         
         menu=new JPanel();
@@ -270,6 +334,8 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         quit.setBackground(new Color(15,145,99));
         quit.setForeground(Color.white);
 >>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
     }
 
     private void disporVista() 
@@ -280,7 +346,13 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
           menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
           menu.add(Box.createRigidArea(new Dimension(0,20)));
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
           menu.add(start);
           menu.add(Box.createRigidArea(new Dimension(0,10)));
@@ -292,6 +364,12 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
           menu.add(Box.createRigidArea(new Dimension(0,10)));
           menu.add(quit);
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
           menu.add(Box.createRigidArea(new Dimension(0,20)));
           
           
@@ -336,6 +414,10 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
     }
     
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
           menu.add(Box.createRigidArea(new Dimension(0,100)));
     }
@@ -346,6 +428,8 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         startingArea.addActionListener(new StartIngAreaListner());
     }
         
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
     @Override
      public void paintComponent(Graphics g) {
@@ -367,6 +451,12 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
          }
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 
   private  class saveDificultyListner implements ActionListener {
         @Override
@@ -419,6 +509,10 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         public void actionPerformed(ActionEvent ae) {
          startAreaMenu();
          
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
     @Override
     public void update(Observable o, Object o1) {
@@ -436,6 +530,8 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes,Observer{
         @Override
         public void actionPerformed(ActionEvent ae) {
              //add(startingAreaPanel);
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
         }
     }

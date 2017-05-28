@@ -7,6 +7,12 @@
 package mini_rogue.GUI.Vistas;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -15,6 +21,11 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Insets;
+<<<<<<< HEAD
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+=======
+>>>>>>> origin/master
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.BorderFactory;
@@ -33,17 +44,29 @@ import static mini_rogue.GUI.Vistas.Constantes.*;
 import mini_rogue.GUI.modelo.Modelo;
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
 import java.awt.Color;
 import javax.swing.JPanel;
 import mini_rogue.GUI.modelo.Modelo;
 
 >>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 /**
  * 
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
 public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private Modelo modelo;
         private JPanel rightPanel;
@@ -80,26 +103,50 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         private JProgressBar xp;
         private JProgressBar gold;
         private JProgressBar armor;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
 =======
 public class AwaitCardSelectioGUI extends JPanel {
         private Modelo modelo;
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
 
     AwaitCardSelectioGUI(Modelo m){
         this.modelo=m;
         setBackground(Color.BLACK);
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
         
         setLayout(new BorderLayout());
         
         criaObjGraf();
         disporVista();
+<<<<<<< HEAD
+        registarListeners();
+=======
        //registarListeners();
+>>>>>>> origin/master
        
     }
        
     private void CriaCards(){
         card0=new JButton();
+<<<<<<< HEAD
+        String teste1=modelo.getCardName(0);
+=======
+<<<<<<< HEAD
+        String teste1=modelo.getCardName(0);
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
         card0.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(0))));
         card0.setMargin(new Insets(0, 0, 0, 0));
         card0.setBorder(null);      
@@ -235,6 +282,21 @@ public class AwaitCardSelectioGUI extends JPanel {
         poison_icon= new JLabel(new ImageIcon(Imagem.getImagem(POISON)));
         ice_icon=new JLabel(new ImageIcon(Imagem.getImagem(ICE)));
         
+<<<<<<< HEAD
+        fire=new JLabel(modelo.getstock(2)+"");
+        fire.setFont(new Font("Arial", Font.BOLD, 20));
+        fire.setForeground(Color.WHITE);
+        ice=new JLabel(modelo.getstock(3)+"");
+        ice.setFont(new Font("Arial", Font.BOLD, 20));
+        ice.setForeground(Color.WHITE);
+        poison=new JLabel(modelo.getstock(4)+"");
+        poison.setFont(new Font("Arial", Font.BOLD, 20));
+        poison.setForeground(Color.WHITE);
+        heal=new JLabel(modelo.getstock(5)+"");
+        heal.setFont(new Font("Arial", Font.BOLD, 20));
+        heal.setForeground(Color.WHITE);
+                  
+=======
         fire=new JLabel("9");
         fire.setFont(new Font("Arial", Font.BOLD, 20));
         fire.setForeground(Color.WHITE);
@@ -247,6 +309,7 @@ public class AwaitCardSelectioGUI extends JPanel {
         heal=new JLabel("9");
         heal.setFont(new Font("Arial", Font.BOLD, 20));
         heal.setForeground(Color.WHITE);
+>>>>>>> origin/master
         
     }
     
@@ -431,11 +494,97 @@ public class AwaitCardSelectioGUI extends JPanel {
             
          }
 
+<<<<<<< HEAD
+    private void registarListeners() {
+        card0.addActionListener(new card0listner());
+        card1.addActionListener(new card1listner());
+        card2.addActionListener(new card2listner());
+        card3.addActionListener(new card3listner());
+        card4.addActionListener(new card4listner());
+        card5.addActionListener(new card5listner());
+        card6.addActionListener(new card6listner());
+        
+
+    }
+private  class card0listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(modelo.CollunLvl()==1)
+                  modelo.resolvecard(0);
+
+        }    
+ 
+}
+
+private  class card1listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+         if(modelo.CollunLvl()==2)
+            modelo.resolvecard(1);
+
+        }    
+ 
+}
+
+private  class card2listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+        if(modelo.CollunLvl()==2)
+            modelo.resolvecard(3);
+
+        }    
+ 
+}
+
+private  class card3listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(modelo.CollunLvl()==3)
+            modelo.resolvecard(3);
+ 
+        }    
+ 
+}
+
+private  class card4listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+         if(modelo.CollunLvl()==4)   
+            modelo.resolvecard(1);
+
+        }    
+ 
+}
+
+private  class card5listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(modelo.CollunLvl()==4)
+            modelo.resolvecard(2);
+
+        }    
+ 
+}
+
+private  class card6listner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(modelo.CollunLvl()==5)
+            modelo.resolvecard(6);
+
+        }    
+ 
+}
+=======
     
  
 
 
+<<<<<<< HEAD
+=======
 =======
     }
+>>>>>>> origin/master
+>>>>>>> origin/master
 >>>>>>> origin/master
 }

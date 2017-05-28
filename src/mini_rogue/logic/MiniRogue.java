@@ -8,6 +8,7 @@ package mini_rogue.logic;
 
 import java.io.Serializable;
 import mini_rogue.logic.states.AwaitBeginning;
+import mini_rogue.logic.states.AwaitTrading;
 import mini_rogue.logic.states.IStates;
 import mini_rogue.logic.states.RolledDices;
 import mini_rogue.logic.states.WaitForFeats;
@@ -129,9 +130,9 @@ public class MiniRogue implements Serializable {
                     break;
                     }
                     if(option==2) {
-                        if( GameData.getCharacter().getHp()<20)
+                        if( GameData.getCharacter().getHp()<20){
                             setState(getState().buy(option));
-                        else
+                        }else
                             GameData.setMensage("You already have max HP!");
                     break;
                     } 
@@ -322,6 +323,12 @@ public class MiniRogue implements Serializable {
     }
     
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
+>>>>>>> origin/master
     public int getCharArmor(){
         return GameData.getArmor();
     }
