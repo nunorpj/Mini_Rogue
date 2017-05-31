@@ -23,6 +23,12 @@ import javax.swing.JProgressBar;
 import javax.swing.SpringLayout;
 import javax.swing.border.LineBorder;
 import static mini_rogue.GUI.Vistas.Constantes.ALTURA;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_1;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_2;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_3;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_4;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_5;
+import static mini_rogue.GUI.Vistas.Constantes.DICE_6;
 import static mini_rogue.GUI.Vistas.Constantes.FUNDO;
 import static mini_rogue.GUI.Vistas.Constantes.HERO;
 import static mini_rogue.GUI.Vistas.Constantes.LARGURA;
@@ -72,7 +78,7 @@ public class RolledDicesGUI extends JPanel implements Constantes{
         private JLabel poison;
         private JLabel heal;
         private Modelo modelo;
-
+        private DicePanel[] dados;
     public RolledDicesGUI(Modelo m) {
     this.modelo=m;
     CriaObjt();
@@ -128,8 +134,14 @@ public class RolledDicesGUI extends JPanel implements Constantes{
         FeatsButton.setForeground(Color.white);
         FeatsButton.setFocusPainted(false);
         FeatsButton.setFont(new Font("Serif", Font.BOLD, 25));
+        if(modelo.isFeatsAlreadyUsed()==true)
+            FeatsButton.setEnabled(false);
         
         
+        dados=new DicePanel[modelo.getNumberOfDices()];
+        for(int i=0;i<modelo.getNumberOfDices();i++){
+           dados[i]=new DicePanel(i);
+        }
     }
     private void criaPlayerobj() {
         Hero_Hp = new JProgressBar(0, 20);
@@ -227,6 +239,26 @@ public class RolledDicesGUI extends JPanel implements Constantes{
     private void DispObjt() {
         SpringLayout FighLayout = new SpringLayout();
         setLayout(FighLayout);
+         
+        FighLayout.putConstraint(SpringLayout.WEST, dados[0], 1075, SpringLayout.WEST, this);
+        FighLayout.putConstraint(SpringLayout.NORTH, dados[0], 700, SpringLayout.WEST, this);
+        add(dados[0]);
+        
+        if(modelo.getNumberOfDices()>1){
+        FighLayout.putConstraint(SpringLayout.WEST, dados[1], 750, SpringLayout.WEST, this);
+        FighLayout.putConstraint(SpringLayout.NORTH, dados[1], 700, SpringLayout.WEST, this);
+        add(dados[1]);
+    }
+     if(modelo.getNumberOfDices()>2){
+        FighLayout.putConstraint(SpringLayout.WEST, dados[2], 425, SpringLayout.WEST, this);
+        FighLayout.putConstraint(SpringLayout.NORTH, dados[2], 700, SpringLayout.WEST, this);
+        add(dados[2]);
+    }
+   if(modelo.getNumberOfDices()>3){
+        FighLayout.putConstraint(SpringLayout.WEST, dados[3], 100, SpringLayout.WEST, this);
+        FighLayout.putConstraint(SpringLayout.NORTH, dados[3], 700, SpringLayout.WEST, this);
+        add(dados[3]);
+    }
         
         
         FighLayout.putConstraint(SpringLayout.WEST, monster_card, 50, SpringLayout.WEST, this);
@@ -368,14 +400,16 @@ public class RolledDicesGUI extends JPanel implements Constantes{
             modelo.attack();
         }
      }
-  private  class FeatsListner implements ActionListener {
+  
+     private  class FeatsListner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
-   
+            modelo.feats();
         }
      }
   
-  private class cardM extends JPanel{
+  
+     private class cardM extends JPanel{
       private JLabel[] token;
       
       
@@ -453,11 +487,6 @@ public class RolledDicesGUI extends JPanel implements Constantes{
        infoM. putConstraint(SpringLayout.NORTH, token[0], top, SpringLayout.WEST, this);
         this.add(token[0]);
         
-        
-        
-        
-        
-        
         //token da vida
        int vida=modelo.EnemyHp();
         if(vida<11){
@@ -478,7 +507,8 @@ public class RolledDicesGUI extends JPanel implements Constantes{
         }
   }
   
-  private class cardH extends JPanel{
+  
+     private class cardH extends JPanel{
       private JLabel[] token;
       
       
@@ -605,6 +635,98 @@ public class RolledDicesGUI extends JPanel implements Constantes{
         }
   }
 
+  
+     private class DicePanel extends JPanel{
+      private Image dice_1;
+      private Image dice_2;
+      private int dice;
+      
+      public DicePanel(int v){
+          dice=v;
+        setPreferredSize(new Dimension(230, 120));
+        setMaximumSize(new Dimension(230, 120));
+        setMinimumSize(new Dimension(230, 120));
+        setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, margem));
+        setBackground(new Color(0, 0, 0, 140));
+        criaDados();
+        
+       // dispDados();
+       repaint();
+        }
+      
+      
+   @Override
+     public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+     
+            if(dice_1!=null)
+            g.drawImage(dice_1, 10, 10, 100, 100,this);
+           if(dice_2!=null)
+            g.drawImage(dice_2, 120, 10, 100, 100,this);
+
+             //g.drawImage(enemy, 0, 0, 400, 560,this);
+
+         }
+ 
+        private void criaDados() {
+            
+         int value= modelo.diceVauleNumber(dice);
+         
+         if(value>6){
+             dice_1=Imagem.getImagem(DICE_6);
+             value=value-6;
+             switch(value){
+              case 1:
+                  dice_2= Imagem.getImagem(DICE_1);
+                  break; 
+              case 2:
+                 dice_2= Imagem.getImagem(DICE_2);
+                  break; 
+              case 3:
+                  dice_2= Imagem.getImagem(DICE_3);
+                  break; 
+              case 4:
+                  dice_2= Imagem.getImagem(DICE_4);
+                  break; 
+              case 5:
+                  dice_2= Imagem.getImagem(DICE_5);
+                  break; 
+              case 6:
+                  dice_2= Imagem.getImagem(DICE_6);
+                  break;
+            }
+         }else{
+              switch(value){
+              case 0:
+              case 1:
+                  dice_1= Imagem.getImagem(DICE_1);
+                  break; 
+              case 2:
+                 dice_1= Imagem.getImagem(DICE_2);
+                  break; 
+              case 3:
+                  dice_1= Imagem.getImagem(DICE_3);
+                  break; 
+              case 4:
+                  dice_1= Imagem.getImagem(DICE_4);
+                  break; 
+              case 5:
+                  dice_1= Imagem.getImagem(DICE_5);
+                  break; 
+              case 6:
+                  dice_1= Imagem.getImagem(DICE_6);
+                  break;
+         }
+             
+          
+
+        }
+      
+
+  }
+  }
+  
 }
 
 

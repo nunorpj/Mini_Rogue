@@ -36,4 +36,12 @@ public class Dice implements Serializable {
     public int getSecondNumber() {
         return num2;
     }
+    
+    public int[] getNumbers() {
+       int[] nums;
+        nums = new int[2];
+       nums[0]=num;
+       nums[1]=num2;
+       return nums;
+    }
 }

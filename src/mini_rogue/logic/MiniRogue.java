@@ -339,5 +339,5 @@ public class MiniRogue implements Serializable {
    public IStates getLastState(){
        return GameData.getLastState();
    }
-   
+
 }

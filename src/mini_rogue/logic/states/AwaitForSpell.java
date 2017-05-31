@@ -30,6 +30,7 @@ public class AwaitForSpell extends StateAdapter {
                 enemy.inflictDmgToMonster(8);
                 break;
             case 2:// ice, monstro nao ataca
+                getGame().getCharacter().RemoveSpell(option);
                 return new RolledDices(getGame(), enemy);
             case 3://poison
                 enemy.getPoisoned();

@@ -33,7 +33,6 @@ public interface Constantes {
     
     
     
-    
     String Start="Start";
     String StartingArea= "Set Starting Area!";
     String StartingDificulty= "Set Starting Dificulty";

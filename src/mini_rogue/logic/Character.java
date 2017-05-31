@@ -183,6 +183,8 @@ public class Character implements Serializable{
             dices.get(i).roll();
             atack += dices.get(i).getDiceNumber();
         }
+        if(atack!=1)
+            atack--;
     }
 
     public void recalcAtack(int diceToChanged) {
@@ -223,13 +225,13 @@ public class Character implements Serializable{
                 }
                 break;
             case 2:
-                if (this.xp >= 12) {
+                if (this.xp >= 18) {
                     this.lvl = 3;
                     dices.add(new Dice());
                 }
                 break;
             case 3:
-                if (this.xp >= 18) {
+                if (this.xp >= 36) {
                     this.lvl = 4;
                     dices.add(new Dice());
                 }
@@ -244,6 +246,17 @@ public class Character implements Serializable{
 
     public int getXp() {
         return this.xp;
+    }
+    
+    
+    public Dice getDice(int index){
+           if (index < 0 || index >= dices.size())
+            return null;
+        else
+            return dices.get(index);
+    }
+    public ArrayList<Dice> getdices(){
+        return dices;
     }
 }
 

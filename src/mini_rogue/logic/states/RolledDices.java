@@ -6,7 +6,9 @@
 
 package mini_rogue.logic.states;
 
+import java.util.ArrayList;
 import mini_rogue.logic.Cards.Monsters.*;
+import mini_rogue.logic.Dice;
 import mini_rogue.logic.GameData;
 
 /**
@@ -45,11 +47,12 @@ public class RolledDices extends StateAdapter {
             if(enemy.isItDeadYeah()==true){
                 getGame().getCharacter().AddOrRemoveXp(enemy.getYourReward());
                 if(enemy instanceof BossMonsterCard){
-                    //reward
+                ((BossMonsterCard)enemy).rewardBoss();
                 }
+                getGame().setFeatsUsed(false);
                 return moveON();
             }
- 
+         getGame().setFeatsUsed(false);
         return new AwaitForSpell(getGame(), enemy);
     }
 
@@ -76,4 +79,11 @@ public class RolledDices extends StateAdapter {
         return new WaitForFeats(getGame(), this.enemy);
     }
 
+    public int getDiceNumber(int index) {
+        ArrayList<Dice> dices = getGame().getDiceList();
+        if (index < 0 || index >= dices.size())
+            return -1;
+        else
+            return dices.get(index).getDiceNumber();
+    }
 }

@@ -12,6 +12,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.border.LineBorder;
+import static mini_rogue.GUI.Vistas.Constantes.margem;
 
 
 /**
@@ -25,6 +29,7 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
 
     private status stats;
     private Dungeon dungeon;
+   
     private JButton card0;
     private JButton card1;
     private JButton card2;
@@ -33,8 +38,8 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
     private JButton card5;
     private JButton card6;
 
-    private JPanel logGAme;
-
+    //private JTextArea logGAme;
+    private LogPanel  Gamelogs;
 
     AwaitCardSelectioGUI(Modelo m) {
         this.modelo = m;
@@ -53,7 +58,7 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         card0.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(0))));
         card0.setMargin(new Insets(0, 0, 0, 0));
         card0.setBorder(null);
-
+        
         card1 = new JButton();
         card1.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(1))));
         card1.setMargin(new Insets(0, 0, 0, 0));
@@ -83,7 +88,27 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         card6.setIcon(new ImageIcon(Imagem.getImagem(BOSS)));
         card6.setMargin(new Insets(0, 0, 0, 0));
         card6.setBorder(null);
-
+        
+        switch(modelo.CollunLvl()){
+            case 1:
+                card0.setBorder(new LineBorder(Color.blue, 3));
+                break;
+            case 2:
+                card1.setBorder(new LineBorder(Color.blue, 3));
+                card2.setBorder(new LineBorder(Color.blue, 3));
+                break;
+            case 3:
+                card3.setBorder(new LineBorder(Color.blue, 3));
+                break;
+            case 4:
+                card4.setBorder(new LineBorder(Color.blue, 3));
+                card5.setBorder(new LineBorder(Color.blue, 3));
+                break;
+            case 5:
+                 card6.setBorder(new LineBorder(Color.blue, 3));
+                break;
+            
+        }
 
     }
 
@@ -92,15 +117,8 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         CriaCards();
         stats = new status();
         dungeon = new Dungeon();
-
-
-        logGAme = new JPanel();
-        logGAme.setBackground(new Color(0, 0, 0, 140));
-        logGAme.setPreferredSize(new Dimension(600, 250));
-        logGAme.setMaximumSize(new Dimension(600, 250));
-        logGAme.setMinimumSize(new Dimension(600, 250));
-        ;
-        logGAme.setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, margem));
+        String[] test= { "sdf","hasdgfh"};
+        Gamelogs=new LogPanel(test);
 
     }
 
@@ -108,7 +126,6 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
     private void disporCard() {
 
 
-        //imagem da vida
         tableLayout.putConstraint(SpringLayout.WEST, card0, 15, SpringLayout.WEST, this);
         tableLayout.putConstraint(SpringLayout.NORTH, card0, 160, SpringLayout.WEST, this);
         this.add(card0);
@@ -152,9 +169,9 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         tableLayout.putConstraint(SpringLayout.NORTH, stats, 590, SpringLayout.WEST, this);
         this.add(stats);
 
-        tableLayout.putConstraint(SpringLayout.WEST, logGAme, 800, SpringLayout.WEST, this);
-        tableLayout.putConstraint(SpringLayout.NORTH, logGAme, 590, SpringLayout.WEST, this);
-        this.add(logGAme);
+        tableLayout.putConstraint(SpringLayout.WEST, Gamelogs, 800, SpringLayout.WEST, this);
+        tableLayout.putConstraint(SpringLayout.NORTH, Gamelogs, 590, SpringLayout.WEST, this);
+        this.add(Gamelogs);
 
         tableLayout.putConstraint(SpringLayout.WEST, dungeon, 1120, SpringLayout.WEST, this);
         tableLayout.putConstraint(SpringLayout.NORTH, dungeon, 160, SpringLayout.WEST, this);
@@ -488,4 +505,79 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         }
 
     }
+    
+    private class LogPanel extends JPanel{
+            private JTextArea logGAme;
+            private JLabel title;
+            private JScrollPane scroll;
+            
+            public  LogPanel( String[] logs){
+                super();
+             setBackground(new Color(0, 0, 0, 140));
+            setPreferredSize(new Dimension(600, 250));
+            setMaximumSize(new Dimension(600, 250));
+            setMinimumSize(new Dimension(600, 250));
+            setBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, margem));
+            criaObj(logs);
+            DispObj();
+            }
+            
+            private void criaObj(String[] logs){
+                        
+                         title= new JLabel("Logs:");
+                         title.setForeground(Color.WHITE);
+                         title.setFont(new Font("Arial", Font.BOLD, 20));
+                         
+                         
+                         logGAme = new JTextArea();
+                         logGAme.setBackground(Color.BLACK);
+                       
+                         logGAme.setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.BLACK));
+                         logGAme.setEditable(false);
+                         logGAme.setForeground(margem);
+                         logGAme.setFont(new Font("Arial", Font.PLAIN, 18));
+                         logGAme.setAutoscrolls(true);
+                         logGAme.setHighlighter(null);//impede que se sublinhe +/-
+                        
+                         logGAme.setLineWrap(true);
+                         
+                         
+                         scroll = new JScrollPane(logGAme);
+                         scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                         
+                        scroll.setPreferredSize(new Dimension(570, 210));
+                        scroll.setMaximumSize(new Dimension(570, 210));
+                        scroll.setMinimumSize(new Dimension(570, 210));
+                        scroll.setForeground(margem);
+                        scroll.setOpaque(false);
+                        
+                                             /* -> LEITAO <- */
+                        SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss >> ");
+                        Date now = new Date();
+                        String strDate = sdfDate.format(now);
+                        logGAme.append(strDate+"ola mundo teste teste jagsh");
+                        
+            }
+            
+            private void DispObj(){
+            SpringLayout logLayout = new SpringLayout();
+            this.setLayout(logLayout);
+            
+            logLayout.putConstraint(SpringLayout.WEST, title, 12, SpringLayout.WEST, this);
+            logLayout.putConstraint(SpringLayout.NORTH, title, 4, SpringLayout.NORTH, this);
+            this.add(title);
+            
+            //logLayout.putConstraint(SpringLayout.WEST, logGAme, 12, SpringLayout.WEST, this);
+           // logLayout.putConstraint(SpringLayout.NORTH, logGAme, 30, SpringLayout.WEST, this);
+          //this.add(logGAme);
+            
+             logLayout.putConstraint(SpringLayout.WEST, scroll, 12, SpringLayout.WEST, this);
+            logLayout.putConstraint(SpringLayout.NORTH, scroll, 30, SpringLayout.NORTH, this);
+            this.add(scroll);
+            
+            
+
+            }
+    }
+    
 }

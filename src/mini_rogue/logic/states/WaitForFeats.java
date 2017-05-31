@@ -40,6 +40,14 @@ public class WaitForFeats extends StateAdapter {
         }
         return true;
     }
+       
+    public int[] getDiceFaces(int index) {
+        if (index < 0 || index >= dices.size())
+            return null;
+        else
+            return dices.get(index).getNumbers();
+    }
+    
     @Override
     public IStates analize(int option, int option2) {
                          switch(option2){

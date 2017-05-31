@@ -17,7 +17,7 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
     private Container cp;
     private SomThread thread_som;
     public VistaFrame(Modelo m)  {
-        super("The Test");
+        super("Mini Rogue");
         modelo=m;
         modelo.addObserver(this);
         setLocation(x, y);
@@ -61,7 +61,11 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
          cp.add(new RolledDicesGUI(modelo),BorderLayout.CENTER);
           thread_som.MudaSom(FIGHT_SOUND);
 
-}
+        }else if (state instanceof AwaitForSpell){
+         cp.add(new awaiForSpellsGUI(modelo),BorderLayout.CENTER);
+        }else if (state instanceof WaitForFeats){
+         cp.add(new waitForFeatsGUI(modelo),BorderLayout.CENTER);
+        }
         repaint();
         revalidate();
     }

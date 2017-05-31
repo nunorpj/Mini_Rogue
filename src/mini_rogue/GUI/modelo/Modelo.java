@@ -20,7 +20,7 @@ import mini_rogue.logic.states.*;
  */
 public class Modelo extends Observable implements Constantes{
     private MiniRogue miniRogue;
-    
+    private int aux;
    public Modelo(){
         miniRogue=new MiniRogue();
    }
@@ -154,20 +154,23 @@ public int getstock(int i){
        return ((RolledDices)miniRogue.getState()).getMonsterAttack();
    }
       public int EnemyHp(){
-       return ((RolledDices)miniRogue.getState()).getMonsterLife();
+          aux= ((RolledDices)miniRogue.getState()).getMonsterLife();
+       return aux;
    }
    
       public int CollunLvl(){
           return miniRogue.Collunlvl();
       }
-      
+     public int EnemyLife(){
+       return aux;
+   }
       public int getEnemyMaxHp(){
          return ((RolledDices)miniRogue.getState()).getMonsterMaxhp();
       }
       
       
       public int getHeroAttack(){
-          return((RolledDices)miniRogue.getState()).getCharacterAttack();
+          return miniRogue.getCharacterAtack();
       }
       
       public void attack(){
@@ -179,5 +182,48 @@ public int getstock(int i){
       public int getArea(){
           return miniRogue.getArea();
       }
+      public void feats(){
+          miniRogue.useFeats();
+          setChanged();
+          notifyObservers();
+      }
       
+    public void Spells(int option){
+        miniRogue.useSpells(option);
+        setChanged();
+        notifyObservers();
+    }
+    
+    public void letsFight(){
+            miniRogue.letsFight();
+           setChanged();
+          notifyObservers();
+    }
+    
+    public int diceVauleNumber(int i){
+
+          //return ((RolledDices) miniRogue.getState()).getDiceNumber(i);
+         return miniRogue.getGameLogic().getCharacter().getDice(i).getDiceNumber();
 }
+    
+    public int getNumberOfDices(){
+        return miniRogue.getNunbDices();
+    }
+    
+    public void backToRolledDices(){
+       
+        miniRogue.backToRollDices();
+        setChanged();
+        notifyObservers();
+    }
+    
+    public void useFeats(int option1,int option2){
+        miniRogue.featsUsed(option1, option2);
+        setChanged();
+        notifyObservers();
+    }
+    public boolean isFeatsAlreadyUsed(){
+        return miniRogue.featsUsed();
+    }
+}
+
