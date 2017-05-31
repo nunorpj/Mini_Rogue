@@ -17,58 +17,22 @@ public class Imagem implements Constantes{
     private static Map<String, Image> imagens = new HashMap<String, Image>();
     static {
         try {
-<<<<<<< HEAD
            imagens.put(TOCHA,ImageIO.read(Resources.getResourceFile(PATH_IMG_TOCHA)));
            imagens.put(LOGO, ImageIO.read(Resources.getResourceFile(PATH_IMG_LOGO)));
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
-           imagens.put(LOGO, ImageIO.read(Resources.getResourceFile(PATH_IMG_LOGO)));
-           imagens.put(TOCHA,ImageIO.read(Resources.getResourceFile(PATH_IMG_TOCHA)));
->>>>>>> origin/master
            imagens.put(BACK,ImageIO.read(Resources.getResourceFile(PATH_IMG_BACK)));
            imagens.put(FUNDO,ImageIO.read(Resources.getResourceFile(PATH_IMG_FUNDO)));
            imagens.put(BOSS,ImageIO.read(Resources.getResourceFile(PATH_IMG_BOSS)));
            imagens.put(EVENT_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_EVENT_CARD)));
-<<<<<<< HEAD
            imagens.put(RESTING_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_RESTING_CARD_BIG)));
-=======
-<<<<<<< HEAD
-           imagens.put(RESTING_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_RESTING_CARD_BIG)));
-=======
->>>>>>> origin/master
->>>>>>> origin/master
            imagens.put(MERCHANT_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_MERCHANT_CARD)));
            imagens.put(MONSTER_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_MONSTER_CARD)));
            imagens.put(RESTING_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_RESTING_CARD)));
            imagens.put(BOSS,ImageIO.read(Resources.getResourceFile(PATH_IMG_BOSS)));
            imagens.put(TRAP_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_TRAP_CARD)));
            imagens.put(TREASURE_CARD,ImageIO.read(Resources.getResourceFile(PATH_IMG_TREASURE_CARD)));
-<<<<<<< HEAD
-           imagens.put(MERCHANT_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_MERCHANT_CARD_BIG)));
-           imagens.put(EVENT_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_EVENT_CARD_BIG)));
-           imagens.put(MONSTER_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_MONSTER_CARD_BIG)));
-           imagens.put(BOSS_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_BOSS_BIG)));
+           imagens.put(MERCHANT_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_MERCHANT_CARD_BIG)));  
            imagens.put(HERO,ImageIO.read(Resources.getResourceFile(PATCH_IMG_HERO)));
-
            imagens.put(FOOD,ImageIO.read(Resources.getResourceFile(PATCH_IMG_FOOD)));
-=======
-<<<<<<< HEAD
-            imagens.put(MERCHANT_CARD_BIG,ImageIO.read(Resources.getResourceFile(PATH_IMG_MERCHANT_CARD_BIG)));
-
-           
-           
-           
-           imagens.put(FOOD,ImageIO.read(Resources.getResourceFile(PATCH_IMG_FOOD)));
-=======
-           imagens.put(FOOD,ImageIO.read(Resources.getResourceFile(PATCH_IMG_FOOD)));
-
-           
-           
->>>>>>> origin/master
->>>>>>> origin/master
            imagens.put(VIDA,ImageIO.read(Resources.getResourceFile(PATH_IMG_VIDA)));
            imagens.put(SHIELD,ImageIO.read(Resources.getResourceFile(PATCH_IMG_SHIELD)));
            imagens.put(COIN,ImageIO.read(Resources.getResourceFile(PATCH_IMG_COIN)));
@@ -77,21 +41,22 @@ public class Imagem implements Constantes{
            imagens.put(HEAL,ImageIO.read(Resources.getResourceFile(PATCH_IMG_HEAL)));
            imagens.put(POISON,ImageIO.read(Resources.getResourceFile(PATCH_IMG_POISON)));
            imagens.put(ICE,ImageIO.read(Resources.getResourceFile(PATCH_IMG_ICE)));
-<<<<<<< HEAD
            imagens.put(SWORD,ImageIO.read(Resources.getResourceFile(PATH_IMG_SWORD)));
+           imagens.put(MONSTRO,ImageIO.read(Resources.getResourceFile(PATCH_IMG_MONSTRO)));
+           imagens.put(TOKEN,ImageIO.read(Resources.getResourceFile(PATCH_IMG_TOKEN)));
+          imagens.put(TOKEN_SMALL,ImageIO.read(Resources.getResourceFile(PATCH_IMG_TOKEN_SMALL)));
+           imagens.put(STATUS,ImageIO.read(Resources.getResourceFile(PATCH_IMG_STATUS)));
+           imagens.put(DUNGEON,ImageIO.read(Resources.getResourceFile(PATCH_IMG_DUNGEON)));
+         
+           imagens.put(DICE_1,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_1)));
+           imagens.put(DICE_2,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_2)));
+           imagens.put(DICE_3,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_3)));
+           imagens.put(DICE_4,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_4)));
+           imagens.put(DICE_5,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_5)));
+           imagens.put(DICE_6,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_6)));
+           imagens.put(OLHOS,ImageIO.read(Resources.getResourceFile(PATH_IMG_OLHOS)));
 
 
-=======
-
-
-<<<<<<< HEAD
-=======
-=======
-            imagens.put(LOGO, ImageIO.read(Resources.getResourceFile(PATH_IMG_LOGO)));
-            imagens.put(TOCHA,ImageIO.read(Resources.getResourceFile(PATH_IMG_TOCHA)));
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
         } catch (IOException e) {
             System.out.print(e);
         }

@@ -70,6 +70,7 @@ public class Character implements Serializable{
             this.hp=20;
         else
             this.hp = this.hp + i;
+
     }
 
     public void AddOrRemoveGold(int i) {
@@ -77,13 +78,17 @@ public class Character implements Serializable{
             this.gold=20;
         else
             this.gold = this.gold + i;
+        if(gold<0)
+            gold=0;
     }
 
     public void AddOrRemoveArmor(int i) {
-        if(this.armor + i>6)
-            this.armor=6;
+        if(this.armor + i>5)
+            this.armor=5;
         else
             this.armor = this.armor + i;
+        if(armor<0)
+            armor=0;
     }
 
     public void AddSpell(Spell s) {
@@ -163,7 +168,12 @@ public class Character implements Serializable{
     }
 
     public void AddOrRemoveXp(int i) {
-        this.xp = this.xp + i;
+        if(this.xp+ i>36)
+            this.xp=36;
+        else
+            this.xp = this.xp + i;
+        if(xp<0)
+            xp=0;
     }
 
     public void setAtack() {

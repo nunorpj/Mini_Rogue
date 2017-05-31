@@ -5,22 +5,9 @@
  */
 
 package mini_rogue.GUI.Vistas;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-<<<<<<< HEAD
-import javax.swing.JButton;
-=======
-<<<<<<< HEAD
-import javax.swing.JButton;
-=======
-<<<<<<< HEAD
-import javax.swing.JButton;
-=======
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
 import javax.swing.JPanel;
 
 /**
@@ -28,31 +15,11 @@ import javax.swing.JPanel;
  * @author Sammy Guergachi <sguergachi at gmail.com>
  */
 public interface Constantes {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
     int  ALTURA=900;
     int LARGURA=1440;
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     int x=dim.width/2-720;
     int y=dim.height/2-450;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-    int  ALTURA=720;
-    int LARGURA=1280;
-    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    int x=dim.width/2-640;
-    int y=dim.height/2-360;
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
     
     Color margem = new Color(201,180,137);
           
@@ -61,18 +28,7 @@ public interface Constantes {
         JPanel e =new JPanel();
         JPanel w =new JPanel();
     
-<<<<<<< HEAD
         Dimension bSize= new Dimension(250,50);
-=======
-<<<<<<< HEAD
-        Dimension bSize= new Dimension(250,50);
-=======
-<<<<<<< HEAD
-        Dimension bSize= new Dimension(250,50);
-=======
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
     
     
     
@@ -91,44 +47,28 @@ public interface Constantes {
     String TOCHA= "tocha";
     String PATH_IMG_TOCHA= "imagens/tocha.png";
     
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
+    String  OLHOS= "olhos";
+    String PATH_IMG_OLHOS="imagens/olhos.png";
+    
+    
     String BACK= "back";
     String PATH_IMG_BACK= "imagens/back.png";
     
     String FUNDO="fundo";
     String PATH_IMG_FUNDO= "imagens/table.jpg";
     
-<<<<<<< HEAD
     String SWORD= "sword";
     String PATH_IMG_SWORD = "imagens/sword.png";
-=======
-    
->>>>>>> origin/master
     
     String BOSS= "Boss Monster";
     String PATH_IMG_BOSS = "imagens/boss_monster_front.png";
-    
-<<<<<<< HEAD
-    String BOSS_BIG= "Boss Monster Big";
-    String PATH_IMG_BOSS_BIG = "imagens/boss_monster_front_big.png";
+
     
     String MONSTER_CARD= "Monster Card";
     String PATH_IMG_MONSTER_CARD="imagens/monster_front.png";
     
-    String MONSTER_CARD_BIG= "Monster Card Big";
-    String PATH_IMG_MONSTER_CARD_BIG="imagens/monster_front_big.png";
+
     
-=======
-    String MONSTER_CARD= "Monster Card";
-    String PATH_IMG_MONSTER_CARD="imagens/monster_front.png";
-    
->>>>>>> origin/master
     String TREASURE_CARD="Treasure Card";
     String PATH_IMG_TREASURE_CARD="imagens/treasure_front.png";
 
@@ -144,26 +84,13 @@ public interface Constantes {
     String EVENT_CARD="Event Card";
     String PATH_IMG_EVENT_CARD="imagens/event_front.png";
     
-<<<<<<< HEAD
-    String EVENT_CARD_BIG="Event Card Big";
-    String PATH_IMG_EVENT_CARD_BIG="imagens/event_front_big.png";
+
     
-    
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
     String RESTING_CARD_BIG="Resting Card big";
     String PATH_IMG_RESTING_CARD_BIG="imagens/resting_front_big.png";
     
     String MERCHANT_CARD_BIG="Merchant Card big";
     String PATH_IMG_MERCHANT_CARD_BIG="imagens/merchant_front_big.png";
-<<<<<<< HEAD
-=======
-=======
-    
-    
->>>>>>> origin/master
->>>>>>> origin/master
     
     String VIDA="hp";
     String PATH_IMG_VIDA="imagens/hp.png";
@@ -192,16 +119,53 @@ public interface Constantes {
    String ICE= "ice";
    String PATCH_IMG_ICE="imagens/ICE.png";
 
-<<<<<<< HEAD
    String HERO= "hero";
-   String PATCH_IMG_HERO="imagens/character_stats_small_back.png";
-=======
+   String PATCH_IMG_HERO="imagens/character_stats_small_front.png";
+   
+      String MONSTRO= "monstro";
+   String PATCH_IMG_MONSTRO="imagens/the_dungeon_front.png";
+   
+   
+   String TOKEN="Token";
+   String PATCH_IMG_TOKEN="imagens/token.png";
+   
+     String STATUS="status";
+   String PATCH_IMG_STATUS="imagens/Character_Stats.png";
+   
+   String TOKEN_SMALL="Token small";
+   String PATCH_IMG_TOKEN_SMALL="imagens/token_small.png";
+   
+   String DUNGEON= "dungeon";
+   String PATCH_IMG_DUNGEON="imagens/the_dungeon_front_small.png";
+   
+   
+   String MENU_SOM="menu";
+   String PATCH_SOM_MENU="Sons/menu.au";
+   
+   
+   String FIGHT_SOUND="fight sound";
+  String PATCH_FIGHT_SOUND="Sons/fight_music.au";
 
-<<<<<<< HEAD
-=======
-=======
-    
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
+  String MAIN_SOUND="main sound";
+  String PATCH_MAIN_SOUND="Sons/main.au";
+
+  String DICE_1="dice 1";
+  String PATCH_IMAGE_DICE_1="imagens/1.png";
+  
+  String DICE_2="dice 2";
+  String PATCH_IMAGE_DICE_2="imagens/2.png";
+  
+  String DICE_3="dice 3";
+  String PATCH_IMAGE_DICE_3="imagens/3.png";
+  
+  String DICE_4="dice 4";
+  String PATCH_IMAGE_DICE_4="imagens/4.png";
+  
+  String DICE_5="dice 5";
+  String PATCH_IMAGE_DICE_5="imagens/5.png";
+  
+  String DICE_6="dice 6";
+  String PATCH_IMAGE_DICE_6="imagens/6.png";
+  
+   
 }

@@ -6,76 +6,34 @@ import java.awt.Container;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-<<<<<<< HEAD
+import static mini_rogue.GUI.Vistas.Constantes.MENU_SOM;
+import static mini_rogue.GUI.Vistas.Constantes.PATCH_SOM_MENU;
+import mini_rogue.GUI.Vistas.Sons.Som;
 import mini_rogue.logic.states.*;
-=======
-<<<<<<< HEAD
-import mini_rogue.logic.states.*;
-=======
-<<<<<<< HEAD
-import mini_rogue.logic.states.*;
-=======
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
-
 
 public class VistaFrame extends JFrame implements  Observer,Constantes {
 
     private Modelo modelo;
     private Container cp;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-    
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
+    private SomThread thread_som;
     public VistaFrame(Modelo m)  {
         super("The Test");
         modelo=m;
         modelo.addObserver(this);
         setLocation(x, y);
         setSize(LARGURA, ALTURA);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
         cp=getContentPane();
         setResizable(false);
+        thread_som=new SomThread();
+        thread_som.start();
+        
+
+        
+       
        
         criaObj();
         DispObj();
-<<<<<<< HEAD
        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
-        //add(new AwaitOptionSelectionGUI(modelo),BorderLayout.CENTER);
-       // add(new AwaitForTradingGUI(modelo),BorderLayout.CENTER);
-
-=======
-        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
-<<<<<<< HEAD
-        //add(new AwaitOptionSelectionGUI(modelo),BorderLayout.CENTER);
-        //add(new AwaitForTradingGUI(modelo),BorderLayout.CENTER);
-
-=======
-=======
-        
-        criaMargem();
-        DispObj();
-       
-        
-        
->>>>>>> origin/master
-        
->>>>>>> origin/master
->>>>>>> origin/master
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();
@@ -84,33 +42,26 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
        
     @Override
     public void update(Observable o, Object o1) {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> origin/master
->>>>>>> origin/master
         IStates state=modelo.getState();
         cp.removeAll();
         DispObj();
-        if (state instanceof AwaitBeginning)
-<<<<<<< HEAD
+        if (state instanceof AwaitBeginning){
             cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
-        else if (state instanceof AwaitCardSelection)
+            thread_som.MudaSom(MENU_SOM);
+        }else if (state instanceof AwaitCardSelection){
             cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
-       else if (state instanceof AwaitTrading)
+            thread_som.MudaSom(MAIN_SOUND);
+        }else if (state instanceof AwaitTrading){
             cp.add(new AwaitForTradingGUI(modelo),BorderLayout.CENTER);
-       else if (state instanceof AwaitOptionSelection)
+            
+        }else if (state instanceof AwaitOptionSelection){
             cp.add(new AwaitOptionSelectionGUI(modelo),BorderLayout.CENTER);
-       else if (state instanceof RolledDices)
+            
+        }else if (state instanceof RolledDices){
          cp.add(new RolledDicesGUI(modelo),BorderLayout.CENTER);
-=======
-        cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
-        if (state instanceof AwaitCardSelection)
-        cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
->>>>>>> origin/master
-        
+          thread_som.MudaSom(FIGHT_SOUND);
+
+}
         repaint();
         revalidate();
     }
@@ -128,40 +79,26 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
         cp.add(s,BorderLayout.SOUTH);
         cp.add(e,BorderLayout.EAST);
         cp. add(w,BorderLayout.WEST);
-        
-        
-        //add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
-        
-        //add( new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
-        
+       
     }
 
-    private void criaMargem() {
-        n.setBackground(margem);
-        e.setBackground(margem);
-        w.setBackground(margem);
-        s.setBackground(margem);   
-    
-    }
+    public class SomThread extends Thread {
+        private Som som;   
+        @Override
+        public void run(){  
+         som = new Som(MENU_SOM);
+         
+            }
+        public void MudaSom(String s){
 
-    private void DispObj() {
-        setLayout(new BorderLayout());
-        add(n,BorderLayout.NORTH);
-        add(s,BorderLayout.SOUTH);
-        add(e,BorderLayout.EAST);
-        add(w,BorderLayout.WEST);
-
-        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
+            if(modelo.getState().getClass()==(modelo.getLastState().getClass())||modelo.getLastState() instanceof AwaitTrading||modelo.getLastState() instanceof AwaitOptionSelection){
+            } else {
+                som.stop();
+                som = new Som(s);
+            }
+        }
+            
+}
+  
         
-        //add(new vista2(modelo));    
->>>>>>> origin/master
->>>>>>> origin/master
->>>>>>> origin/master
-    }
-
 }
