@@ -55,6 +55,7 @@ public class Imagem implements Constantes{
            imagens.put(DICE_5,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_5)));
            imagens.put(DICE_6,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_DICE_6)));
            imagens.put(OLHOS,ImageIO.read(Resources.getResourceFile(PATH_IMG_OLHOS)));
+           imagens.put(LOST,ImageIO.read(Resources.getResourceFile(PATCH_IMAGE_LOST)));
 
 
         } catch (IOException e) {

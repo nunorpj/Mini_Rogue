@@ -7,7 +7,6 @@ import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
 import static mini_rogue.GUI.Vistas.Constantes.MENU_SOM;
-import static mini_rogue.GUI.Vistas.Constantes.PATCH_SOM_MENU;
 import mini_rogue.GUI.Vistas.Sons.Som;
 import mini_rogue.logic.states.*;
 
@@ -34,7 +33,8 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
         criaObj();
         DispObj();
        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
-        setVisible(true);
+        //add(new awaitToEndGUI(modelo),BorderLayout.CENTER);
+       setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();
     }
@@ -65,6 +65,8 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
          cp.add(new awaiForSpellsGUI(modelo),BorderLayout.CENTER);
         }else if (state instanceof WaitForFeats){
          cp.add(new waitForFeatsGUI(modelo),BorderLayout.CENTER);
+       }else if (state instanceof AwaitToEnd){
+         cp.add(new awaitToEndGUI(modelo),BorderLayout.CENTER);
         }
         repaint();
         revalidate();

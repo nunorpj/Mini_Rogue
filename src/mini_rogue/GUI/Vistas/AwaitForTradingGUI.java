@@ -6,9 +6,7 @@
 
 package mini_rogue.GUI.Vistas;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -32,11 +30,9 @@ import static mini_rogue.GUI.Vistas.Constantes.HEAL;
 import static mini_rogue.GUI.Vistas.Constantes.ICE;
 import static mini_rogue.GUI.Vistas.Constantes.LARGURA;
 import static mini_rogue.GUI.Vistas.Constantes.POISON;
-import static mini_rogue.GUI.Vistas.Constantes.RESTING_CARD_BIG;
 import static mini_rogue.GUI.Vistas.Constantes.SHIELD;
 import static mini_rogue.GUI.Vistas.Constantes.VIDA;
-import static mini_rogue.GUI.Vistas.Constantes.XP;
-import static mini_rogue.GUI.Vistas.Constantes.bSize;
+
 import static mini_rogue.GUI.Vistas.Constantes.margem;
 import mini_rogue.GUI.modelo.Modelo;
 
@@ -332,6 +328,19 @@ AwaitForTradingGUI(Modelo m) {
             sell[3].setEnabled(false);
         if(modelo.getstock(5)<1)
             sell[4].setEnabled(false);
+        
+        if(modelo.getFood()==6){
+            buy[0].setEnabled(false);
+        }
+        if(modelo.gethp()==20){
+            buy[1].setEnabled(false);
+        }
+        if(modelo.gethp()>16){
+            buy[2].setEnabled(false);
+        }
+        if(modelo.getArmor()==5){
+            buy[3].setEnabled(false);
+        }
     }
     private void dispInfoPanel(){
         SpringLayout INFOLayout = new SpringLayout();

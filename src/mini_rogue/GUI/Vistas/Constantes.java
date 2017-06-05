@@ -166,5 +166,6 @@ public interface Constantes {
   String DICE_6="dice 6";
   String PATCH_IMAGE_DICE_6="imagens/6.png";
   
-   
+  String LOST="lost";
+  String PATCH_IMAGE_LOST="imagens/lost.png";  
 }
