@@ -6,7 +6,15 @@
 
 package mini_rogue.logic;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.AwaitTrading;
 import mini_rogue.logic.states.IStates;
@@ -340,4 +348,73 @@ public class MiniRogue implements Serializable {
        return GameData.getLastState();
    }
 
+   public ArrayList<String> getLogs(){
+       return GameData.getLogs();
+   }
+
+
+private void saveGame(String fileName) throws IOException {
+        ObjectOutputStream oout = null;
+        try {
+
+            //Create an object output stream connected to a file named fileName.
+            oout = new ObjectOutputStream(new FileOutputStream(fileName));
+
+            //Write/serialize the game object to the open object output stream.
+            oout.writeObject(this);
+        } catch(IOException e){
+            return;
+        }
+        finally{
+            
+            //If the object output stream was successfuly created, close it.
+            if(oout != null)
+                try {
+                    oout.close();
+                }catch(IOException e){}
+            
+        }
+    }
+
+    public void handleSaveGameToFileOption(String name) {
+        String fileName = name;
+        
+      
+        if(fileName.length() < 1)
+            return;
+
+        try {
+            saveGame(fileName);
+        } catch (IOException ex) {
+        }
+    }
+    
+    
+public MiniRogue loadGame(String fileName) throws IOException, ClassNotFoundException  {
+ 
+        MiniRogue loadedGame;
+        ObjectInputStream oin = null;
+        
+        try {
+
+            //Create an object input stream connected to a file named fileName.
+            oin = new ObjectInputStream(new FileInputStream(fileName));
+            
+            //Retrieve a serialized instance of ThreeInRowGame from the object input stream and return a reference to it.
+            loadedGame = (MiniRogue)oin.readObject();
+
+            try{
+                if(oin != null)
+                    oin.close();
+            } catch(IOException e){e.printStackTrace();}
+
+
+        }finally{
+            //If the object input stream was successfuly created, close it.
+            if(oin != null)
+                oin.close();
+        }
+        return loadedGame;
+    
+    }
 }

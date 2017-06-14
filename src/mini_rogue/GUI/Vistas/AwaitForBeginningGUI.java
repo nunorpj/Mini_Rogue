@@ -17,13 +17,13 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Hashtable;
-import java.util.Observable;
-import java.util.Observer;
+
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
@@ -47,7 +47,7 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
     private JLabel    choseArea;
     private JPanel startingAreaPanel;
     private JButton saveArea;
-    
+    private JFileChooser chooser;
     private JPanel startingDificultyPanel;
     private JLabel  choseDificulty;
     private JSlider  DificultyJSlider;
@@ -191,6 +191,9 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         saveDificulty.setMaximumSize(bSize);
         saveDificulty.setMinimumSize(bSize);
         saveDificulty.setPreferredSize(bSize);
+        
+        chooser=new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
     }
 
     private void disporVista() 
@@ -249,6 +252,7 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         startingDificulty.addActionListener(new StartingDificultyListener());
         saveDificulty.addActionListener(new saveDificultyListner());
         saveArea.addActionListener(new saveAreaListner());
+        load.addActionListener(new Loadelistner());
     }
     
     
@@ -260,12 +264,28 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         Image tocha=Imagem.getImagem(TOCHA);
         Image olhos= Imagem.getImagem(OLHOS);
         if(logo!=null||tocha!=null){
-            g.drawImage(logo, LARGURA/2-155, ALTURA/2-200, this);
+            g.drawImage(logo, LARGURA/2-150, ALTURA/2-150, this);
+            
             g.drawImage(tocha, 200, ALTURA/2-200, this);
-            g.drawImage(tocha, LARGURA-200-109, ALTURA/2-200, this);
-            g.drawImage(olhos, 0,20, 200,80,this);
+            g.drawImage(tocha, LARGURA-200-130, ALTURA/2-200,this);
+            
+            g.drawImage(tocha, 300, ALTURA/2-200, 80,206,this);
+            g.drawImage(tocha, LARGURA-300-100, ALTURA/2-200, 80,206,this);
+            
+            g.drawImage(tocha, 390, ALTURA/2-200, 60,155,this);
+            g.drawImage(tocha, LARGURA-390-80, ALTURA/2-200, 60,155,this);
+            
+            g.drawImage(tocha, 470, ALTURA/2-200, 40,103,this);
+            g.drawImage(tocha, LARGURA-470-65, ALTURA/2-200, 40,103,this);
+            
+            g.drawImage(tocha, 520, ALTURA/2-200, 30,77,this);
+            g.drawImage(tocha, LARGURA-520-57, ALTURA/2-200, 30,77,this);
+            
+            
+            g.drawImage(olhos, 10,80, 200,80,this);
             g.drawImage(olhos, 1000,600, 200,80,this);
-
+            g.drawImage(olhos, 200,700, 100,40,this);
+            g.drawImage(olhos, 800,100, 100,40,this);
 
         }else{
             System.err.println(" imagem == null");
@@ -313,7 +333,7 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
         }
     }
 
-      private  class StartingDificultyListener implements ActionListener {
+    private  class StartingDificultyListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
             startDificultyListner();
@@ -326,5 +346,16 @@ public class AwaitForBeginningGUI extends JPanel implements Constantes{
          startAreaMenu();
          
         }
+    }
+    
+     private class Loadelistner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if(chooser.showOpenDialog(load)==JFileChooser.APPROVE_OPTION){
+                
+            }
+                        modelo.load(chooser.getSelectedFile().getName());
+        }
+
     }
 }

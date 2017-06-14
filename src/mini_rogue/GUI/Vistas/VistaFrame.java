@@ -32,9 +32,8 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
        
         criaObj();
         DispObj();
-       add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
-        //add(new awaitToEndGUI(modelo),BorderLayout.CENTER);
-       setVisible(true);
+        add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
+        setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();
     }
@@ -46,7 +45,7 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
         cp.removeAll();
         DispObj();
         if (state instanceof AwaitBeginning){
-            cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
+            cp.add(new AwaitForBeginningGUI(modelo),BorderLayout.CENTER);
             thread_som.MudaSom(MENU_SOM);
         }else if (state instanceof AwaitCardSelection){
             cp.add(new AwaitCardSelectioGUI(modelo),BorderLayout.CENTER);
@@ -102,6 +101,13 @@ public class VistaFrame extends JFrame implements  Observer,Constantes {
                 som.stop();
                 som = new Som(s);
             }
+            if(modelo.getLastState().getClass()==modelo.getState().getClass() && modelo.getState() instanceof AwaitBeginning ){
+                 som.stop();
+                som = new Som(s);
+            }
+            
+
+            
         }
             
 }

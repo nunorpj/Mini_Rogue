@@ -23,8 +23,8 @@ import static mini_rogue.GUI.Vistas.Constantes.margem;
  */
 public class AwaitCardSelectioGUI extends JPanel implements Constantes {
     private Modelo modelo;
-    private JButton quit;
-
+    private JButton save;
+   private JFileChooser chooser;
     private SpringLayout tableLayout;
 
     private status stats;
@@ -55,37 +55,37 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
     private void CriaCards() {
         card0 = new JButton();
         String teste1 = modelo.getCardName(0);
-        card0.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(0))));
+        card0.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(0)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card0.setMargin(new Insets(0, 0, 0, 0));
         card0.setBorder(null);
         
         card1 = new JButton();
-        card1.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(1))));
+        card1.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(1)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card1.setMargin(new Insets(0, 0, 0, 0));
         card1.setBorder(null);
 
         card2 = new JButton();
-        card2.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(2))));
+        card2.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(2)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card2.setMargin(new Insets(0, 0, 0, 0));
         card2.setBorder(null);
 
         card3 = new JButton();
-        card3.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(3))));
+        card3.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(3)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card3.setMargin(new Insets(0, 0, 0, 0));
         card3.setBorder(null);
 
         card4 = new JButton();
-        card4.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(4))));
+        card4.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(4)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card4.setMargin(new Insets(0, 0, 0, 0));
         card4.setBorder(null);
 
         card5 = new JButton();
-        card5.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(5))));
+        card5.setIcon(new ImageIcon(Imagem.getImagem(modelo.getCardName(5)).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card5.setMargin(new Insets(0, 0, 0, 0));
         card5.setBorder(null);
 
         card6 = new JButton();
-        card6.setIcon(new ImageIcon(Imagem.getImagem(BOSS)));
+        card6.setIcon(new ImageIcon(Imagem.getImagem(BOSS).getScaledInstance(200, 280, Image.SCALE_SMOOTH)));
         card6.setMargin(new Insets(0, 0, 0, 0));
         card6.setBorder(null);
         
@@ -119,6 +119,22 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         dungeon = new Dungeon();
         String[] test= { "sdf","hasdgfh"};
         Gamelogs=new LogPanel(test);
+        
+        Dimension dim=new Dimension(110, 40);
+        save=new JButton("Save!");
+        save.setMaximumSize(dim);
+        save.setMinimumSize(dim);
+        save.setPreferredSize(dim);
+        save.setBorder(BorderFactory.createRaisedSoftBevelBorder());
+        save.setBackground(new Color(15,145,99));
+        save.setForeground(Color.white);
+        save.setFocusPainted(false);
+        save.setFont(new Font("Serif", Font.BOLD, 25));
+        
+        chooser=new JFileChooser();
+        chooser.setCurrentDirectory(new java.io.File("."));
+        chooser.setFileSelectionMode(JFileChooser.OPEN_DIALOG);
+        
 
     }
 
@@ -164,6 +180,10 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         tableLayout = new SpringLayout();
         this.setLayout(tableLayout);
 
+        tableLayout.putConstraint(SpringLayout.WEST, save, 1200, SpringLayout.WEST, this);
+        tableLayout.putConstraint(SpringLayout.NORTH, save, 60, SpringLayout.WEST, this);
+        this.add(save);
+        
         disporCard();
         tableLayout.putConstraint(SpringLayout.WEST, stats, 20, SpringLayout.WEST, this);
         tableLayout.putConstraint(SpringLayout.NORTH, stats, 590, SpringLayout.WEST, this);
@@ -205,10 +225,20 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
         card4.addActionListener(new card4listner());
         card5.addActionListener(new card5listner());
         card6.addActionListener(new card6listner());
-
+        save.addActionListener(new savelistner());
 
     }
 
+        private class savelistner implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+           if(chooser.showOpenDialog(save)==JFileChooser.APPROVE_OPTION){
+               modelo.save(chooser.getSelectedFile().getName());
+           }
+        }
+
+    }
+    
     private class card0listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -552,10 +582,11 @@ public class AwaitCardSelectioGUI extends JPanel implements Constantes {
                         scroll.setOpaque(false);
                         
                                              /* -> LEITAO <- */
-                        SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss >> ");
-                        Date now = new Date();
-                        String strDate = sdfDate.format(now);
-                        logGAme.append(strDate+"ola mundo teste teste jagsh");
+                        
+                        for(int i=0;i<modelo.getLogs().size();i++){
+                        logGAme.append(modelo.getLogs().get(i));
+                        logGAme.append("-------------------------------------------------------------------------------------------\n");
+                        }
                         
             }
             

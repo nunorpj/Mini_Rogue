@@ -11,6 +11,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -51,8 +53,11 @@ public class awaitToEndGUI extends JPanel implements Constantes {
     }
 
     private void CriaObjt() {
-        result= new JLabel(new ImageIcon(Imagem.getImagem(LOST)));
-        
+        if(modelo.youWin()==true)
+            result= new JLabel(new ImageIcon(Imagem.getImagem(WIN)));
+        else
+           result= new JLabel(new ImageIcon(Imagem.getImagem(LOST)));
+
         
         newGame = new JButton("New Game!");
         newGame.setMaximumSize(bSize);
@@ -71,11 +76,13 @@ public class awaitToEndGUI extends JPanel implements Constantes {
         SpringLayout layout=new SpringLayout();
         
         setLayout(layout);
-        //if perdeu
-        layout.putConstraint(SpringLayout.WEST, result, 427, SpringLayout.WEST, this);
+        if(modelo.youWin())
+            layout.putConstraint(SpringLayout.WEST, result, 400, SpringLayout.WEST, this);
+       else
+           layout.putConstraint(SpringLayout.WEST, result, 427, SpringLayout.WEST, this);
+        
         layout.putConstraint(SpringLayout.NORTH, result, 200, SpringLayout.WEST, this);
         add(result);   
-        //else  ganhou
         
         
         
@@ -86,6 +93,7 @@ public class awaitToEndGUI extends JPanel implements Constantes {
     }
 
     private void RegistaListners() {
+        newGame.addActionListener(new newGameListener());
     }
     
     @Override
@@ -95,8 +103,11 @@ public class awaitToEndGUI extends JPanel implements Constantes {
         
         Image fundo=Imagem.getImagem(FUNDO);
                 //if perdeu
-
-        Image span= Imagem.getImagem(POISON);
+                 Image span=null;
+         if(modelo.youWin()==false){
+                   span= Imagem.getImagem(POISON);
+         }else
+                    span= Imagem.getImagem(XP);
                //else  ganhou
 
         if(fundo!=null){
@@ -148,5 +159,12 @@ public class awaitToEndGUI extends JPanel implements Constantes {
          }
          
      }
+     
+private  class newGameListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            modelo.newGame();
+        }
+    }    
      
 }

@@ -86,25 +86,38 @@ public class StateAdapter implements IStates {
 
     @Override
     public IStates moveON() {
-        if (getGame().getCharacter().getFood() > 0) {
-            getGame().getCharacter().AddOrRemoveFood(-1);
-        } else
-            getGame().getCharacter().AddOrRemoveHp(-2);
 
         if (getGame().getCharacter().getHp() <= 0)
             return new AwaitToEnd(new GameData());
 
-        if (getGame().getCollun() == 4 && (getGame().getArea() == 2 || getGame().getArea() == 4 || getGame().getArea() == 10 || getGame().getArea() == 14)) {
+        if (getGame().getCollun() == 4 && (getGame().getArea() == 2 || getGame().getArea() == 4 ||getGame().getArea() == 7 || getGame().getArea() == 10 || getGame().getArea() == 14)) {
             getGame().nexColumm();
             return new AwaitCardSelection(getGame());
-        } else if (getGame().getCollun() == 4 && (getGame().getArea() != 2 || getGame().getArea() != 4 || getGame().getArea() != 10 || getGame().getArea() != 14)) {
+       
+        } else if (getGame().getCollun() == 4 && (getGame().getArea() != 2 || getGame().getArea() != 4 ||getGame().getArea() != 7 || getGame().getArea() != 10 || getGame().getArea() != 14)) {
             getGame().SetStartingArea(getGame().getArea() + 1);
-
+            if (getGame().getCharacter().getFood() > 0) {
+                     getGame().getCharacter().AddOrRemoveFood(-1);
+             }  else
+                    getGame().getCharacter().AddOrRemoveHp(-2);
             return new AwaitCardSelection(getGame());
-        } else if (getGame().getCollun() == 5) {
+            
+        } else if (getGame().getCollun() == 5&& getGame().getArea() != 14) {
             getGame().SetStartingArea(getGame().getArea() + 1);
+          if (getGame().getCharacter().getFood() > 0) {
+                     getGame().getCharacter().AddOrRemoveFood(-1);
+            }  else
+                    getGame().getCharacter().AddOrRemoveHp(-2);
             return new AwaitCardSelection(getGame());
+       
+        }else if (getGame().getCollun() == 5&& getGame().getArea() == 14) {
+            getGame().win();
+            return  new AwaitToEnd(getGame());
+            
         }
+        
+        
+        
         if (getGame().getCollun() > 0 && getGame().getCollun() < 4)
             getGame().nexColumm();
 

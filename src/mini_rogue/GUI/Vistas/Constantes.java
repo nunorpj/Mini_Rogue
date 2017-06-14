@@ -147,6 +147,10 @@ public interface Constantes {
 
   String MAIN_SOUND="main sound";
   String PATCH_MAIN_SOUND="Sons/main.au";
+  
+  String MONEY_SOUND="money sound";
+  String PATCH_MONEY_SOUND="Sons/chaching.au";
+  
 
   String DICE_1="dice 1";
   String PATCH_IMAGE_DICE_1="imagens/1.png";
@@ -168,4 +172,7 @@ public interface Constantes {
   
   String LOST="lost";
   String PATCH_IMAGE_LOST="imagens/lost.png";  
+    
+  String WIN="win";
+  String PATCH_IMAGE_WIN="imagens/win.png";  
 }

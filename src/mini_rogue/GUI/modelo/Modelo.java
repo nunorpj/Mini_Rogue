@@ -6,12 +6,12 @@
 
 package mini_rogue.GUI.modelo;
 
+import java.io.IOException;
+import java.time.Clock;
+import java.util.ArrayList;
 import java.util.Observable;
 import mini_rogue.GUI.Vistas.Constantes;
-import mini_rogue.GUI.Vistas.VistaFrame;
-import mini_rogue.logic.GameData;
 import mini_rogue.logic.MiniRogue;
-import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.*;
 
 /**
@@ -225,5 +225,36 @@ public int getstock(int i){
     public boolean isFeatsAlreadyUsed(){
         return miniRogue.featsUsed();
     }
+    
+    public void newGame(){
+        miniRogue=new MiniRogue();
+        setChanged();
+        notifyObservers();
+    }
+    
+    public ArrayList<String> getLogs(){
+        return miniRogue.getLogs();
+    }
+    public boolean youWin(){
+        return miniRogue.win();
+    }
+    
+    public void load(String path){
+        try{
+           miniRogue= miniRogue.loadGame(path);
+        }catch(IOException | ClassNotFoundException e){
+            System.err.println(e);
+            return;
+        }
+        
+        setChanged();
+        notifyObservers();
+    }
+    
+    
+    public void save(String path){
+        miniRogue.handleSaveGameToFileOption(path);
+    }
+    
 }
 

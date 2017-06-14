@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
        //TextUI textUI = new TextUI(new MiniRogue());
        //textUI.run();
-       Modelo m=new Modelo();
+      Modelo m=new Modelo();
        new VistaFrame(m);
     }
 }

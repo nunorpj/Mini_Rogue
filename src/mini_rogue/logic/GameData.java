@@ -7,12 +7,15 @@
 package mini_rogue.logic;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import mini_rogue.logic.Cards.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import mini_rogue.logic.Cards.Monsters.BossMonsterCard;
 import mini_rogue.logic.Cards.Monsters.MonsterCard;
+import mini_rogue.logic.states.AwaitBeginning;
 import mini_rogue.logic.states.IStates;
 
 /**
@@ -32,8 +35,10 @@ public class GameData implements Serializable {
     private boolean win=false;
     private String mensage;
     private IStates lastStat; 
+    private ArrayList<String> logs;
 
     public GameData() {
+        this.lastStat=new AwaitBeginning(this);
         this.area = 1;
         this.Collunlvl = 1;
         this.Dificulty = 2;//normal
@@ -42,6 +47,8 @@ public class GameData implements Serializable {
         featsUsed = false;
         mensage = "";
         Hero = new Character();
+        logs=new ArrayList<>();
+        
         cards = new ArrayList<>();//cartas viradas para baixo e ter outra com as cartas viradas para cima??
     }                           //ou simplesmente ter um int que guarda a coluna em que vamos e apartir dai 
 
@@ -106,6 +113,11 @@ public class GameData implements Serializable {
     }
 
     public String CardOnTableToString() {
+       if(mensage.isEmpty()==false){
+           logs.add(mensage);
+       }
+           
+           
         String str = "";
         if (!mensage.isEmpty()) {
             str += mensage;
@@ -174,6 +186,7 @@ public class GameData implements Serializable {
     }
 
     public int getCollun() {
+        
         return this.Collunlvl;
     }
 
@@ -190,10 +203,19 @@ public class GameData implements Serializable {
     }
 
     public Character getCharacter() {
+      if(!mensage.isEmpty()){
+                 SimpleDateFormat sdfDate = new SimpleDateFormat("HH:mm:ss >> ");
+                Date now = new Date();
+                 String strDate = sdfDate.format(now);
+                 mensage=strDate+mensage+"\n";
+                logs.add(mensage);
+                mensage = "";
+       }
         return this.Hero;
     }
 
     public void nexColumm() {
+
         this.Collunlvl++;
     }
 
@@ -250,7 +272,7 @@ public class GameData implements Serializable {
         cards.add(new EventCard(this));
         Collections.shuffle(cards);
 
-        if (this.area == 2 || this.area == 4 || this.area == 10 || this.area == 14)
+        if (this.area == 2 || this.area == 4 ||this.area == 7 || this.area == 10 || this.area == 14)
             cards.add(new BossMonsterCard(this));
     }
     public void win(){
@@ -266,5 +288,9 @@ public class GameData implements Serializable {
     
     public IStates getLastState(){
         return this.lastStat;
+    }
+    
+    public ArrayList<String> getLogs(){
+        return logs;
     }
 }

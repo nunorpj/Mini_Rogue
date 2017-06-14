@@ -29,11 +29,14 @@ import static mini_rogue.GUI.Vistas.Constantes.FUNDO;
 import static mini_rogue.GUI.Vistas.Constantes.HEAL;
 import static mini_rogue.GUI.Vistas.Constantes.ICE;
 import static mini_rogue.GUI.Vistas.Constantes.LARGURA;
+import static mini_rogue.GUI.Vistas.Constantes.MENU_SOM;
+import static mini_rogue.GUI.Vistas.Constantes.MONEY_SOUND;
 import static mini_rogue.GUI.Vistas.Constantes.POISON;
 import static mini_rogue.GUI.Vistas.Constantes.SHIELD;
 import static mini_rogue.GUI.Vistas.Constantes.VIDA;
 
 import static mini_rogue.GUI.Vistas.Constantes.margem;
+import mini_rogue.GUI.Vistas.Sons.Som;
 import mini_rogue.GUI.modelo.Modelo;
 
 /**
@@ -245,7 +248,7 @@ AwaitForTradingGUI(Modelo m) {
         food.setBorder(new LineBorder(margem));
         food.setBackground(new Color(250, 250,250, 250));
         
-        armor = new JProgressBar(0, 6);
+        armor = new JProgressBar(0, 5);
         armor.setValue(modelo.getArmor());
         armor.setString(modelo.getArmor()+"/5");
         armor.setStringPainted(true);
@@ -654,6 +657,9 @@ public void paintComponent(Graphics g) {
 private  class Buy0Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(1);
 
         }
@@ -661,6 +667,9 @@ private  class Buy0Listner implements ActionListener {
 private  class Buy1Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(2);
 
         }
@@ -668,6 +677,9 @@ private  class Buy1Listner implements ActionListener {
 private  class Buy2Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(3);
 
         }
@@ -675,6 +687,9 @@ private  class Buy2Listner implements ActionListener {
 private  class Buy3Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(4);
 
         }
@@ -682,6 +697,9 @@ private  class Buy3Listner implements ActionListener {
 private  class Buy4Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(5);
 
 }
@@ -689,6 +707,9 @@ private  class Buy4Listner implements ActionListener {
 private  class Buy5Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(6);
 
         }
@@ -696,12 +717,18 @@ private  class Buy5Listner implements ActionListener {
 private  class Buy6Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(7);
         }
 }
 private  class Buy7Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.buy(8);
 
         }
@@ -709,6 +736,10 @@ private  class Buy7Listner implements ActionListener {
 private  class Sell0Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
+            
             modelo.sell(1);
 
         }
@@ -716,6 +747,9 @@ private  class Sell0Listner implements ActionListener {
 private  class Sell1Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.sell(2);
 
         }
@@ -723,6 +757,9 @@ private  class Sell1Listner implements ActionListener {
 private  class Sell2Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.sell(3);
 
         }
@@ -730,6 +767,9 @@ private  class Sell2Listner implements ActionListener {
 private  class Sell3Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.sell(4);
 
         }
@@ -737,6 +777,9 @@ private  class Sell3Listner implements ActionListener {
 private  class Sell4Listner implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
+            Som som = new Som(MONEY_SOUND);
+            som.stop();
+            som.play();
             modelo.sell(5);
 
         }

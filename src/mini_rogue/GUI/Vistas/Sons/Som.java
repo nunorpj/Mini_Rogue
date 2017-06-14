@@ -23,6 +23,8 @@ public class Som implements Constantes{
            sons.put(MENU_SOM,Applet.newAudioClip(Resources.getResourceFile(PATCH_SOM_MENU)));
            sons.put(FIGHT_SOUND,Applet.newAudioClip(Resources.getResourceFile(PATCH_FIGHT_SOUND)));
            sons.put(MAIN_SOUND,Applet.newAudioClip(Resources.getResourceFile(PATCH_MAIN_SOUND)));
+           sons.put(MONEY_SOUND,Applet.newAudioClip(Resources.getResourceFile(PATCH_MONEY_SOUND)));
+
     }
 
 public Som(String s){
